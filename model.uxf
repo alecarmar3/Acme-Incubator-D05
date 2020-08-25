@@ -309,6 +309,7 @@ Banner
 --
 + picture: String {NotBlank, URL}
 + slogan: String {NotBlank}
++ updateDate: Date {Temporal, Past}
 + targetUrl: String {NotBlank, URL}
 + creditCardNumber: String {NotBlank, CreditCardNumber}
 + holderName: String {NotBlank}
@@ -341,13 +342,14 @@ Bulletin
       <x>2460</x>
       <y>930</y>
       <w>290</w>
-      <h>200</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Challenge
 --
 + title: String {NotBlank}
 + deadline: Date {NotNull, Temporal}
++ updateDate: Date {Temporal, Past}
 + description: String {NotBlank}
 + expertGoal: String {NotBlank}
 + averageGoal: String {NotBlank}
@@ -380,13 +382,14 @@ Configuration
       <x>2870</x>
       <y>740</y>
       <w>300</w>
-      <h>170</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Research
 --
 + title: String {NotBlank}
 + creationDate: Date {NotNull, Temporal, Past}
++ updateDate: Date {Temporal, Past}
 + deadline: Date {NotNull, Temporal}
 + body: String {NotBlank}
 + moneyMin: Money {NotNull, Valid}
@@ -443,6 +446,7 @@ Record
 --
 + title: String {NotBlank}
 + activitySector: String {NotBlank}
++ updateDate: Date {Temporal, Past}
 + inventorName: String {NotBlank}
 + description: String {NotBlank}
 + website: String {NotBlank, URL}
@@ -538,12 +542,12 @@ Inquiry
     <id>Relation</id>
     <coordinates>
       <x>3010</x>
-      <y>900</y>
+      <y>910</y>
       <w>30</w>
-      <h>80</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -655,16 +659,18 @@ Activity
       <x>1380</x>
       <y>1020</y>
       <w>440</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Application
 --
 + ticker: String {Column, NotBlank, Pattern}
 + creationDate: Date {NotNull, Temporal, Past}
++ updateDate: Date {Temporal, Past}
 + status: ApplicationStatus {NotNull}
 + statement: String {NotBlank}
 + investmentMoneyOffer: Money {NotNull, Valid}
++ justification: String
 + investor: Investor {NotNull, Valid, ManyToOne}
 + investmentRound: InvestmentRound {NotNull, Valid, ManyToOne}
 </panel_attributes>
@@ -676,13 +682,14 @@ Application
       <x>880</x>
       <y>990</y>
       <w>380</w>
-      <h>180</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 InvestmentRound
 --
 + ticker: String {Column, NotBlank, Pattern}
 + creationDate: Date {NotNull, Temporal, Past}
++ updateDate: Date {Temporal, Past}
 + kindOfRound: String {NotBlank}
 + title: String {NotBlank}
 + description: String {NotBlank}
@@ -821,14 +828,14 @@ has &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1060</x>
-      <y>1160</y>
+      <y>1180</y>
       <w>50</w>
-      <h>180</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1=1
 m2=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -910,15 +917,15 @@ has &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>760</x>
-      <y>1160</y>
+      <y>1180</y>
       <w>240</w>
-      <h>150</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1=1
 m2=0..*
 belongs to &gt;</panel_attributes>
-    <additional_attributes>140.0;10.0;140.0;120.0;10.0;120.0</additional_attributes>
+    <additional_attributes>140.0;10.0;140.0;100.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

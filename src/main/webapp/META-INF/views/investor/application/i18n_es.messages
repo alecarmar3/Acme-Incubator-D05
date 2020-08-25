@@ -16,4 +16,5 @@ investor.application.label.investor = Inversor
 investor.application.label.investmentRound = Ronda de inversión
 investor.application.label.status = Estado
 
+investor.application.form.button.create = Crear
 investor.application.button.return = Volver

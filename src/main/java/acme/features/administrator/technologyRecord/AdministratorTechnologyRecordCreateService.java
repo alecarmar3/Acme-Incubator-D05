@@ -69,7 +69,7 @@ public class AdministratorTechnologyRecordCreateService implements AbstractCreat
 
 		if (!errors.hasErrors("activitySector")) {
 			Boolean isOneOption = config.activitySectorsToList().contains(entity.getActivitySector());
-			errors.state(request, isOneOption, "activitySector", "This value must fit one of these options:" + config.activitySectorsToList(), entity.getSourceType());
+			errors.state(request, isOneOption, "activitySector", "This value must fit one of these options:" + config.activitySectorsToList(), entity.getActivitySector());
 		}
 
 	}

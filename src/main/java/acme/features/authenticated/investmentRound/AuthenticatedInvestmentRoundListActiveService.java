@@ -32,7 +32,7 @@ public class AuthenticatedInvestmentRoundListActiveService implements AbstractLi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "kindOfRound", "title", "amountOfMoney");
+		request.unbind(entity, model, "ticker", "finalMode", "kindOfRound", "title", "amountOfMoney");
 	}
 
 	@Override
@@ -42,8 +42,6 @@ public class AuthenticatedInvestmentRoundListActiveService implements AbstractLi
 		Collection<InvestmentRound> result;
 
 		result = this.repository.findActiveInvestmentRounds();
-
-		result.stream().forEach(x -> x.setAmountOfMoney(this.repository.getBudgetSumOfInvestmentRound(x.getId())));
 
 		return result;
 	}

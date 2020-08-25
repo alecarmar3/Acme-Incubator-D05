@@ -33,7 +33,7 @@ public class EntrepreneurInvestmentRoundListMineService implements AbstractListS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "kindOfRound", "title", "amountOfMoney");
+		request.unbind(entity, model, "ticker", "finalMode", "kindOfRound", "title", "amountOfMoney");
 	}
 
 	@Override
@@ -46,8 +46,6 @@ public class EntrepreneurInvestmentRoundListMineService implements AbstractListS
 		int id = principal.getActiveRoleId();
 
 		result = this.repository.findMyInvestmentRounds(id);
-
-		result.stream().forEach(x -> x.setAmountOfMoney(this.repository.getBudgetSumOfInvestmentRound(x.getId())));
 
 		return result;
 	}

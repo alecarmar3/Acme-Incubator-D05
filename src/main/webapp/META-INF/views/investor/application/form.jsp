@@ -17,12 +17,17 @@
 
 <acme:form>
 	<acme:form-textbox code="investor.application.label.ticker" path="ticker"/>
-	<acme:form-moment code="investor.application.label.creationDate" path="creationDate"/>
+	<jstl:if test="${command!='create'}">
+	<acme:form-moment code="investor.application.label.creationDate" readonly="true" path="creationDate"/>
+	</jstl:if>
 	<acme:form-textarea code="investor.application.label.statement" path="statement"/>
 	<acme:form-money code="investor.application.label.investmentMoneyOffer" path="investmentMoneyOffer"/>
-	<acme:form-textbox code="investor.application.label.investor" path="investor.userAccount.username"/>
-	<acme:form-textbox code="investor.application.label.investmentRound" path="investmentRound.title"/>
-	<acme:form-textbox code="investor.application.label.status" path="status"/>
+	<jstl:if test="${command!='create'}">
+	<acme:form-textbox code="investor.application.label.investor" readonly="true" path="investor.userAccount.username"/>
+	<acme:form-textbox code="investor.application.label.investmentRound" readonly="true" path="investmentRound.title"/>
+	<acme:form-textbox code="investor.application.label.status" readonly="true" path="status"/>
+	</jstl:if>
 	
+	<acme:form-submit code="investor.application.form.button.create" test="${command=='create'}" action="/investor/application/create?InvestmentRoundId=${investmentRound.id}"/>
   	<acme:form-return code="investor.application.button.return"/>
 </acme:form>

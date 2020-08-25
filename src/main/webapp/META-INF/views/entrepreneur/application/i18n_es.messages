@@ -15,5 +15,8 @@ entrepreneur.application.label.investmentMoneyOffer = Oferta monetaria de invers
 entrepreneur.application.label.investor = Inversor
 entrepreneur.application.label.investmentRound = Ronda de inversión
 entrepreneur.application.label.status = Estado
+entrepreneur.application.button.accept = Aceptar
+entrepreneur.application.button.reject = Rechazar
+entrepreneur.application.label.justification = Justificación
 
 entrepreneur.application.button.return = Volver

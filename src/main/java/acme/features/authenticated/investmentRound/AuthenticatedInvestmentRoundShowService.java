@@ -1,6 +1,9 @@
 
 package acme.features.authenticated.investmentRound;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +32,20 @@ public class AuthenticatedInvestmentRoundShowService implements AbstractShowServ
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "creationDate", "kindOfRound", "title", "description", "amountOfMoney", "additionalInfo", "entrepreneur.userAccount.username");
+		int id = request.getPrincipal().getAccountId();
+		int InvestmentRoundId = request.getModel().getInteger("id");
+
+		Collection<String> roles = this.repository.findUserAccountRoles(id).stream().map(x -> x.getAuthorityName()).collect(Collectors.toList());
+
+		Boolean notBeenApplied = this.repository.exists(request.getModel().getInteger("id"), request.getPrincipal().getAccountId()).isEmpty();
+		Boolean isInvestor = roles.contains("Investor");
+		Boolean isFinalMode = entity.getFinalMode();
+
+		Boolean investorCanApply = notBeenApplied && isInvestor && isFinalMode;
+		model.setAttribute("investorCanApply", investorCanApply);
+		model.setAttribute("InvestmentRoundId", InvestmentRoundId);
+
+		request.unbind(entity, model, "ticker", "finalMode", "creationDate", "kindOfRound", "title", "description", "amountOfMoney", "additionalInfo", "entrepreneur.userAccount.username");
 	}
 
 	@Override
@@ -40,8 +56,6 @@ public class AuthenticatedInvestmentRoundShowService implements AbstractShowServ
 		int id;
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
-
-		result.setAmountOfMoney(this.repository.getBudgetSumOfInvestmentRound(id));
 
 		return result;
 	}

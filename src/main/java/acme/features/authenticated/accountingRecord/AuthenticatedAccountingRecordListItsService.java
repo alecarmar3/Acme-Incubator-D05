@@ -33,7 +33,7 @@ public class AuthenticatedAccountingRecordListItsService implements AbstractList
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "bookkeeper.userAccount.username", "status");
+		request.unbind(entity, model, "title", "bookkeeper.userAccount.username", "finalMode");
 	}
 
 	@Override

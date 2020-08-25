@@ -23,10 +23,18 @@ public class EntrepreneurApplicationController extends AbstractController<Entrep
 	@Autowired
 	private EntrepreneurApplicationShowService				showService;
 
+	@Autowired
+	private EntrepreneurApplicationUpdateAcceptService		updateAcceptService;
+
+	@Autowired
+	private EntrepreneurApplicationUpdateRejectService		updateRejectService;
+
 
 	@PostConstruct
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_MADE_TO_MINE, BasicCommand.LIST, this.listMadeToMineService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addCustomCommand(CustomCommand.UPDATE_ACCEPT, BasicCommand.UPDATE, this.updateAcceptService);
+		super.addCustomCommand(CustomCommand.UPDATE_REJECT, BasicCommand.UPDATE, this.updateRejectService);
 	}
 }

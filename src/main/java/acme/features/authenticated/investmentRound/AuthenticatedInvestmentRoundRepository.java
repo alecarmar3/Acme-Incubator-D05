@@ -6,7 +6,9 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.Application;
 import acme.entities.InvestmentRound;
+import acme.framework.entities.UserRole;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -24,6 +26,9 @@ public interface AuthenticatedInvestmentRoundRepository extends AbstractReposito
 	@Query("select ir from InvestmentRound ir")
 	Collection<InvestmentRound> findAllRounds();
 
-	@Query("select sum(budget.amount) from Activity a where a.investmentRound.id = ?1")
-	Double getBudgetSumOfInvestmentRound(int id);
+	@Query("select a from Application a where a.investmentRound.id = ?1 AND a.investor.userAccount.id = ?2")
+	Collection<Application> exists(int investmentRoundId, int id);
+
+	@Query("select ur from UserRole ur where ur.userAccount.id = ?1")
+	Collection<UserRole> findUserAccountRoles(int id);
 }

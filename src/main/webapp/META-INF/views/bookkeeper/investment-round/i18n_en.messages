@@ -9,6 +9,7 @@
 # they accept any liabilities with respect to them.
 
 bookkeeper.investmentRound.label.ticker = Ticker
+bookkeeper.investmentRound.label.finalMode = Final mode
 bookkeeper.investmentRound.label.creationDate = Creation date
 bookkeeper.investmentRound.label.kindOfRound = Kind of round
 bookkeeper.investmentRound.label.title = Title

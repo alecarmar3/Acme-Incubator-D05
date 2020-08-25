@@ -29,7 +29,7 @@ public class BookkeeperInvestmentRoundShowService implements AbstractShowService
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "creationDate", "kindOfRound", "title", "description", "amountOfMoney", "additionalInfo", "entrepreneur.userAccount.username");
+		request.unbind(entity, model, "ticker", "finalMode", "creationDate", "kindOfRound", "title", "description", "amountOfMoney", "additionalInfo", "entrepreneur.userAccount.username");
 	}
 
 	@Override
@@ -40,8 +40,6 @@ public class BookkeeperInvestmentRoundShowService implements AbstractShowService
 		int id;
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
-
-		result.setAmountOfMoney(this.repository.getBudgetSumOfInvestmentRound(id));
 
 		return result;
 	}

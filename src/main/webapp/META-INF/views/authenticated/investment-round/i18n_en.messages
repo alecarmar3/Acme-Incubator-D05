@@ -9,6 +9,7 @@
 # they accept any liabilities with respect to them.
 
 authenticated.investmentRound.label.ticker = Ticker
+authenticated.investmentRound.label.finalMode = Final mode
 authenticated.investmentRound.label.creationDate = Creation date
 authenticated.investmentRound.label.kindOfRound = Kind of round
 authenticated.investmentRound.label.title = Title
@@ -20,4 +21,5 @@ authenticated.investmentRound.label.entrepreneur = Entrepreneur
 authenticated.investmentRound.workProgramme = Work Programme
 authenticated.investmentRound.accountingRecords = List Accounting records
 authenticated.investmentRound.button.getMessages = See messages
+authenticated.investmentRound.apply = Apply for this Investment round
 authenticated.investmentRound.button.return = Return

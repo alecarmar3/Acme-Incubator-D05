@@ -76,6 +76,7 @@ master.menu.administrator.shutdown = Shut down
 
 master.menu.entrepreneur = Entrepreneur
 master.menu.entrepreneur.investmentRound.list = List investment rounds
+master.menu.entrepreneur.investmentRound.create = Create investment rounds
 master.menu.entrepreneur.application.list = List applications
 
 # master.menu.bookkeeper ########################################################
@@ -107,6 +108,10 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.entrepreneur = Entrepreneur data
+master.menu.user-account.become-entrepreneur = Become an entrepreneur
+master.menu.user-account.investor = Investor data
+master.menu.user-account.become-investor = Become an investor
 
 # master.footer ###############################################################
 

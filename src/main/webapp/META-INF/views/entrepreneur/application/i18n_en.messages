@@ -15,5 +15,8 @@ entrepreneur.application.label.investmentMoneyOffer = Investment money offer
 entrepreneur.application.label.investor = Investor
 entrepreneur.application.label.investmentRound = Investment round
 entrepreneur.application.label.status = Status
+entrepreneur.application.button.accept = Accept
+entrepreneur.application.button.reject = Reject
+entrepreneur.application.label.justification = Justification
 
 entrepreneur.application.button.return = Return

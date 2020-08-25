@@ -4,6 +4,7 @@ package acme.entities;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
 import javax.persistence.Transient;
@@ -45,6 +46,33 @@ public class Configuration extends DomainEntity {
 		activitySectorsToList = Arrays.asList(this.activitySectors.split(", "));
 
 		return activitySectorsToList;
+	}
+
+	@Transient
+	public boolean isSpam(final String text) {
+		boolean isSpam = false;
+
+		List<String> splitted = Arrays.asList(text.split("\\s|\\p{Punct}"));
+
+		splitted = splitted.stream().filter(s -> s != "").collect(Collectors.toList());
+
+		int n = splitted.size();
+		int count = 0;
+
+		String[] spam = this.spamWords.toLowerCase().split(",");
+
+		String lowerCaseString = text.toLowerCase().replaceAll("\\s+{2,}", " ");
+
+		for (String s : spam) {
+			s = s.trim();
+			count += org.apache.commons.lang3.StringUtils.countMatches(lowerCaseString, s);
+			isSpam = count >= this.spamThreshold * n;
+			if (isSpam) {
+				break;
+			}
+		}
+
+		return isSpam;
 	}
 
 }
