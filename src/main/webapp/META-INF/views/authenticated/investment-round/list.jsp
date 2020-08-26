@@ -18,6 +18,7 @@
 
 <acme:list>
 	<acme:list-column code="authenticated.investmentRound.label.ticker" path="ticker" width="40%"/>
+	<acme:list-column code="authenticated.investmentRound.label.finalMode" path="finalMode" width="40%"/>
 	<acme:list-column code="authenticated.investmentRound.label.kindOfRound" path="kindOfRound" width="20%"/>
 	<acme:list-column code="authenticated.investmentRound.label.title" path="title" width="20%"/>
 	<acme:list-column code="authenticated.investmentRound.label.amountOfMoney" path="amountOfMoney" width="20%"/>

@@ -9,12 +9,20 @@
 # they accept any liabilities with respect to them.
 
 entrepreneur.investmentRound.label.ticker = Ticker
+entrepreneur.investmentRound.label.finalMode = Final mode
+entrepreneur.investmentRound.label.finalMode.no = No
+entrepreneur.investmentRound.label.finalMode.yes = Yes
 entrepreneur.investmentRound.label.creationDate = Creation date
+entrepreneur.investmentRound.label.updateDate = Update date
 entrepreneur.investmentRound.label.kindOfRound = Kind of round
 entrepreneur.investmentRound.label.title = Title
 entrepreneur.investmentRound.label.description = Description
 entrepreneur.investmentRound.label.amountOfMoney = Amount of money
 entrepreneur.investmentRound.label.additionalInfo = Additional information
 entrepreneur.investmentRound.label.entrepreneur = Entrepreneur
+
+entrepreneur.investmentRound.form.button.create = Create
+entrepreneur.investmentRound.form.button.update = Update
+entrepreneur.investmentRound.form.button.delete = Delete
 
 entrepreneur.investmentRound.button.return = Return

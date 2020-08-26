@@ -17,7 +17,7 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.accountingRecord.label.title" path="title"/>
-	<acme:form-textbox code="authenticated.accountingRecord.label.status" path="status"/>
+	<acme:form-textbox code="authenticated.accountingRecord.label.finalMode" path="finalMode"/>
 	<acme:form-moment code="authenticated.accountingRecord.label.creationDate" path="creationDate"/>
 	<acme:form-textarea code="authenticated.accountingRecord.label.body" path="body"/>
 	<acme:form-textbox code="authenticated.accountingRecord.label.bookkeeper" path="bookkeeper.userAccount.username"/>

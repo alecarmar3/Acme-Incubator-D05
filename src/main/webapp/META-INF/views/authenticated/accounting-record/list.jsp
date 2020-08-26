@@ -19,7 +19,7 @@
 <acme:list>
 	<acme:list-column code="authenticated.accountingRecord.label.title" path="title" width="40%"/>
 	<acme:list-column code="authenticated.accountingRecord.label.bookkeeper" path="bookkeeper.userAccount.username" width="20%"/>
-	<acme:list-column code="authenticated.accountingRecord.label.status" path="status" width="20%"/>
+	<acme:list-column code="authenticated.accountingRecord.label.finalMode" path="finalMode" width="20%"/>
 </acme:list>
 
 

@@ -67,6 +67,7 @@ master.menu.administrator.toolRecord.create = Crear registro de herramienta
 master.menu.administrator.challenge.list = Listar desafíos
 master.menu.administrator.challenge.create = Crear desafío
 master.menu.administrator.banner.list = Listar anuncios
+master.menu.administrator.bookkeeperRequest.list = Listar peticiones para contable
 master.menu.administrator.dashboard.show = Mostrar estadísticas
 master.menu.administrator.configuration.show = Mostrar configuración
 master.menu.administrator.shutdown = Parar el sistema
@@ -75,6 +76,7 @@ master.menu.administrator.shutdown = Parar el sistema
 
 master.menu.entrepreneur = Emprendedor
 master.menu.entrepreneur.investmentRound.list = Listar rondas de inversión
+master.menu.entrepreneur.investmentRound.create = Crear rondas de inversión
 master.menu.entrepreneur.application.list = Listar aplicaciones
 
 
@@ -107,6 +109,12 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.entrepreneur = Datos de emprendedor
+master.menu.user-account.become-entrepreneur = Hazte emprendedor
+master.menu.user-account.investor = Datos de inversor
+master.menu.user-account.become-investor = Hazte inversor
+master.menu.user-account.bookkeeper = Datos de contable
+master.menu.user-account.become-bookkeeper = Hazte contable
 
 ﻿# master.footer ###############################################################
 

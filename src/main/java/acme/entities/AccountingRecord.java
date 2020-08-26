@@ -29,32 +29,32 @@ public class AccountingRecord extends DomainEntity {
 
 	// Serialization identifier -----------------------------------------------
 
-	private static final long		serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	// Attributes --------------------------------------------------------------
 
 	@NotBlank
-	private String					title;
+	private String				title;
 
 	@NotNull
-	private AccountingRecordStatus	status;
+	private Boolean				finalMode;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	private Date					creationDate;
+	private Date				creationDate;
 
 	@NotBlank
-	private String					body;
+	private String				body;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Bookkeeper				bookkeeper;
+	private Bookkeeper			bookkeeper;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private InvestmentRound			investmentRound;
+	private InvestmentRound		investmentRound;
 
 }

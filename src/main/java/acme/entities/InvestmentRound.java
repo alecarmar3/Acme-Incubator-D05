@@ -19,6 +19,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.roles.Entrepreneur;
+import acme.framework.datatypes.Money;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,6 +48,10 @@ public class InvestmentRound extends DomainEntity {
 	@Past
 	private Date				creationDate;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	private Date				updateDate;
+
 	@NotBlank
 	private String				kindOfRound; //SEED, ANGEL, SERIES-A, SERIES-B, SERIES-C, BRIDGE
 
@@ -57,7 +62,11 @@ public class InvestmentRound extends DomainEntity {
 	private String				description;
 
 	@NotNull
-	private Double				amountOfMoney;
+	@Valid
+	private Money				amountOfMoney;
+
+	@NotNull
+	private Boolean				finalMode;
 
 	@URL
 	private String				additionalInfo;
@@ -66,23 +75,5 @@ public class InvestmentRound extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Entrepreneur		entrepreneur;
-
-	//Este método hay que implementarlo en los Create/Update Services del siguientre entregable
-
-	//	public boolean validTicker() {
-	//
-	//		boolean firstPart, secondPart;
-	//
-	//		String SSS = this.ticker.substring(0, 3);
-	//		String YY = this.ticker.substring(4, 6);
-	//
-	//		String FirstThreeActivitySector = this.entrepreneur.getActivitySector().substring(0, 3);
-	//		String LastTwoCreationYear = this.creationDate.toString().substring(8, 10);
-	//
-	//		firstPart = SSS.equals(FirstThreeActivitySector);
-	//		secondPart = YY.equals(LastTwoCreationYear);
-	//
-	//		return firstPart == true && secondPart == true;
-	//	}
 
 }

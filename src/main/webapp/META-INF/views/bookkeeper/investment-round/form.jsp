@@ -17,11 +17,12 @@
 
 <acme:form>
 	<acme:form-textbox code="bookkeeper.investmentRound.label.ticker" path="ticker"/>
+	<acme:form-textbox code="bookkeeper.investmentRound.label.finalMode" path="finalMode"/>
 	<acme:form-moment code="bookkeeper.investmentRound.label.creationDate" path="creationDate"/>
 	<acme:form-textbox code="bookkeeper.investmentRound.label.kindOfRound" path="kindOfRound"/>
 	<acme:form-textbox code="bookkeeper.investmentRound.label.title" path="title"/>
 	<acme:form-textarea code="bookkeeper.investmentRound.label.description" path="description"/>
-	<acme:form-textbox code="bookkeeper.investmentRound.label.amountOfMoney" path="amountOfMoney"/>
+	<acme:form-money code="bookkeeper.investmentRound.label.amountOfMoney" path="amountOfMoney"/>
 	<acme:form-url code="bookkeeper.investmentRound.label.additionalInfo" path="additionalInfo"/>
 	<acme:form-textbox code="bookkeeper.investmentRound.label.entrepreneur" path="entrepreneur.userAccount.username"/>
 	

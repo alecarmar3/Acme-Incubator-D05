@@ -614,9 +614,7 @@
 	
 	<bean name="accountingRecord1" class="acme.entities.AccountingRecord">
 		<property name="title" value="Title 1"/>
-		<property name="status">
-			<value>DRAFT</value>
-		</property>
+		<property name="finalMode" value="false"/>
 		<property name="creationDate" value="2019/01/25 12:00"/>
 		<property name="body" value="Body 1"/>
 		<property name="bookkeeper" ref="bookkeeper2"/>
@@ -625,9 +623,7 @@
 	
 	<bean name="accountingRecord2" class="acme.entities.AccountingRecord">
 		<property name="title" value="Title 2"/>
-		<property name="status">
-			<value>DRAFT</value>
-		</property>
+		<property name="finalMode" value="true"/>
 		<property name="creationDate" value="2020/06/17 18:30"/>
 		<property name="body" value="Body 2"/>
 		<property name="bookkeeper" ref="bookkeeper1"/>
@@ -636,9 +632,7 @@
 	
 	<bean name="accountingRecord3" class="acme.entities.AccountingRecord">
 		<property name="title" value="Title 3"/>
-		<property name="status">
-			<value>PUBLISHED</value>
-		</property>
+		<property name="finalMode" value="false"/>
 		<property name="creationDate" value="2019/11/19 8:30"/>
 		<property name="body" value="Body 3"/>
 		<property name="bookkeeper" ref="bookkeeper2"/>
@@ -647,9 +641,7 @@
 	
 	<bean name="accountingRecord4" class="acme.entities.AccountingRecord">
 		<property name="title" value="Title 4"/>
-		<property name="status">
-			<value>PUBLISHED</value>
-		</property>
+		<property name="finalMode" value="true"/>
 		<property name="creationDate" value="2020/07/11 7:30"/>
 		<property name="body" value="Body 4"/>
 		<property name="bookkeeper" ref="bookkeeper1"/>
@@ -658,9 +650,7 @@
 	
 	<bean name="accountingRecord5" class="acme.entities.AccountingRecord">
 		<property name="title" value="Title 5"/>
-		<property name="status">
-			<value>DRAFT</value>
-		</property>
+		<property name="finalMode" value="true"/>
 		<property name="creationDate" value="2020/07/11 7:30"/>
 		<property name="body" value="Body 5"/>
 		<property name="bookkeeper" ref="bookkeeper2"/>
@@ -797,33 +787,39 @@
 	
 	<bean name="investmentRound1" class="acme.entities.InvestmentRound">
 		<property name="ticker" value="YGT-49-744828"/>
+		<property name="finalMode" value="false"/>
 		<property name="creationDate" value="2019/03/11 14:00"/>
+		<property name="updateDate" value="2020/6/25 12:00"/>
 		<property name="kindOfRound" value="Angel"/>
 		<property name="title" value="Investment round 1"/>
 		<property name="description" value="This is the investment round 1"/>
-		<property name="amountOfMoney" value="4511d"/>
+		<property name="amountOfMoney" value="4511 EUR"/>
 		<property name="additionalInfo" value=""/>
 		<property name="entrepreneur" ref="entrepreneur1"/>
 	</bean>
 	
 	<bean name="investmentRound2" class="acme.entities.InvestmentRound">
 		<property name="ticker" value="LKN-62-536991"/>
+		<property name="finalMode" value="false"/>
 		<property name="creationDate" value="2020/02/01 9:00"/>
+		<property name="updateDate" value="2020/6/25 12:00"/>
 		<property name="kindOfRound" value="Series-C"/>
 		<property name="title" value="Investment round 2"/>
 		<property name="description" value="This is the investment round 2"/>
-		<property name="amountOfMoney" value="6533d"/>
+		<property name="amountOfMoney" value="6533 EUR"/>
 		<property name="additionalInfo" value=""/>
 		<property name="entrepreneur" ref="entrepreneur3"/>
 	</bean>
 	
 	<bean name="investmentRound3" class="acme.entities.InvestmentRound">
 		<property name="ticker" value="RRQ-72-614209"/>
+		<property name="finalMode" value="false"/>
 		<property name="creationDate" value="2018/10/24 10:00"/>
+		<property name="updateDate" value="2020/6/25 12:00"/>
 		<property name="kindOfRound" value="SEED"/>
 		<property name="title" value="Investment round 3"/>
 		<property name="description" value="This is the investment round 3"/>
-		<property name="amountOfMoney" value="90050d"/>
+		<property name="amountOfMoney" value="90050 EUR"/>
 		<property name="additionalInfo" value=""/>
 		<property name="entrepreneur" ref="entrepreneur1"/>
 	</bean>

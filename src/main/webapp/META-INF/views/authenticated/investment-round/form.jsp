@@ -17,16 +17,18 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.investmentRound.label.ticker" path="ticker"/>
+	<acme:form-textbox code="authenticated.investmentRound.label.finalMode" path="finalMode"/>
 	<acme:form-moment code="authenticated.investmentRound.label.creationDate" path="creationDate"/>
 	<acme:form-textbox code="authenticated.investmentRound.label.kindOfRound" path="kindOfRound"/>
 	<acme:form-textbox code="authenticated.investmentRound.label.title" path="title"/>
 	<acme:form-textarea code="authenticated.investmentRound.label.description" path="description"/>
-	<acme:form-textbox code="authenticated.investmentRound.label.amountOfMoney" path="amountOfMoney"/>
+	<acme:form-money code="authenticated.investmentRound.label.amountOfMoney" path="amountOfMoney"/>
 	<acme:form-url code="authenticated.investmentRound.label.additionalInfo" path="additionalInfo"/>
 	<acme:form-textbox code="authenticated.investmentRound.label.entrepreneur" path="entrepreneur.userAccount.username"/>
 	
 	<acme:form-submit code="authenticated.investmentRound.accountingRecords" method="get" action="/authenticated/accounting-record/list-its?id=${id}"/>
 	<acme:form-submit code="authenticated.investmentRound.workProgramme" method="get" action="/authenticated/activity/list?id=${id}"/>
 	<acme:form-submit code="authenticated.investmentRound.button.getMessages" method="get" action="/authenticated/message/list?id=${id}"/>
+	<acme:form-submit code="authenticated.investmentRound.apply" test="${investorCanApply}" method="get" action="/investor/application/create?InvestmentRoundId=${id}"/>
   	<acme:form-return code="authenticated.investmentRound.button.return"/>
 </acme:form>
