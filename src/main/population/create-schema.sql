@@ -86,6 +86,17 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `bookkeeper_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `approved` bit not null,
+        `firm_name` varchar(255),
+        `responsibility_statement` varchar(255),
+        `status` integer,
+        `authenticated_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `bulletin` (
        `id` integer not null,
         `version` integer not null,
@@ -325,6 +336,10 @@ create index IDXa91bud5njtdgbcs992l3fc8dl on `application` (`investor_id`);
 
     alter table `banner` 
        add constraint UK_p8qqa0apsb9hsacl8y4mie6m unique (`credit_card_number`);
+create index IDXdxb7pmiadoafycn8trxof2cuy on `bookkeeper_request` (`authenticated_id`);
+
+    alter table `bookkeeper_request` 
+       add constraint UK_qvxp9h7at8vjbwgpi9q5s3fpl unique (`authenticated_id`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDX9u3lu85o98y0tro95qasghg8e on `inquiry` (`deadline`);
 create index IDXcaskyi2xiccqj4na2coao5m4o on `investment_round` (`entrepreneur_id`);
@@ -380,6 +395,11 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
     alter table `bookkeeper` 
        add constraint FK_krvjp9eaqyapewl2igugbo9o8 
        foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `bookkeeper_request` 
+       add constraint `FKtvgadivkof5jo6nfcbk4slan` 
+       foreign key (`authenticated_id`) 
        references `user_account` (`id`);
 
     alter table `consumer` 

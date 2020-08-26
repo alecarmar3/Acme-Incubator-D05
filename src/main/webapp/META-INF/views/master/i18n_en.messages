@@ -68,6 +68,7 @@ master.menu.administrator.toolRecord.create = Create tool record
 master.menu.administrator.challenge.list = List challenges
 master.menu.administrator.challenge.create = Create challenge
 master.menu.administrator.banner.list = List banners
+master.menu.administrator.bookkeeperRequest.list = List Bookkeeper requests
 master.menu.administrator.dashboard.show = Show dashboard
 master.menu.administrator.configuration.show = Show configuration
 master.menu.administrator.shutdown = Shut down
@@ -112,6 +113,8 @@ master.menu.user-account.entrepreneur = Entrepreneur data
 master.menu.user-account.become-entrepreneur = Become an entrepreneur
 master.menu.user-account.investor = Investor data
 master.menu.user-account.become-investor = Become an investor
+master.menu.user-account.bookkeeper = Bookkeeper data
+master.menu.user-account.become-bookkeeper = Become a bookkeeper
 
 # master.footer ###############################################################
 
