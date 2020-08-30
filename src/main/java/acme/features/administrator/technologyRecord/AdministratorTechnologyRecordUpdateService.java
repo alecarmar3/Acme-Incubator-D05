@@ -75,7 +75,7 @@ public class AdministratorTechnologyRecordUpdateService implements AbstractUpdat
 
 		if (!errors.hasErrors("activitySector")) {
 			Boolean isOneOption = config.activitySectorsToList().contains(entity.getActivitySector());
-			errors.state(request, isOneOption, "activitySector", "administrator.technology-record.error.not-option", entity.getSourceType());
+			errors.state(request, isOneOption, "activitySector", "This value must fit one of these options:" + config.activitySectorsToList(), entity.getSourceType());
 		}
 
 	}

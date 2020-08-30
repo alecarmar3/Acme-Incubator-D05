@@ -18,7 +18,7 @@
 <acme:form>
 	<acme:form-textbox code="administrator.banner.form.label.picture" path="picture"/>
 	<acme:form-textbox code="administrator.banner.form.label.slogan" path="slogan"/>
-	<jstl:if test="${command !='update' }">
+	<jstl:if test="${command !='create' }">
 	<acme:form-moment code="administrator.banner.form.label.update-date" path="updateDate" readonly="true"/>
 	</jstl:if>
 	<acme:form-textbox code="administrator.banner.form.label.targetUrl" path="targetUrl"/>

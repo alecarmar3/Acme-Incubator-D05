@@ -23,11 +23,7 @@ import lombok.Setter;
 @Setter
 public class Banner extends DomainEntity {
 
-	// Serialization identifier -----------------------------------------------
-
 	private static final long	serialVersionUID	= 1L;
-
-	// Attributes --------------------------------------------------------------
 
 	@NotBlank
 	@URL
@@ -44,7 +40,6 @@ public class Banner extends DomainEntity {
 	@URL
 	private String				targetUrl;
 
-	@Column(unique = true)
 	@NotBlank
 	@CreditCardNumber
 	private String				creditCardNumber; //number

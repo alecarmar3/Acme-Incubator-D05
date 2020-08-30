@@ -14,7 +14,7 @@ authenticated.investmentRound.label.creationDate = Fecha de creación
 authenticated.investmentRound.label.kindOfRound = Tipo de ronda
 authenticated.investmentRound.label.title = Título
 authenticated.investmentRound.label.description = Descripción
-authenticated.investmentRound.label.amountOfMoney = Euros totales en presupuestos de actividades
+authenticated.investmentRound.label.amountOfMoney = Cantidad de dinero
 authenticated.investmentRound.label.additionalInfo = Información adicional
 authenticated.investmentRound.label.entrepreneur = Emprendedor
 

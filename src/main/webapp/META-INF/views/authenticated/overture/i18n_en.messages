@@ -22,7 +22,7 @@ authenticated.overture.form.label.creation-date = Creation date
 authenticated.overture.form.label.deadline = Deadline
 authenticated.overture.form.label.body = Body
 authenticated.overture.form.label.money-min = Minimum money
-authenticated.overture.form.label.money-max = Máximum money
+authenticated.overture.form.label.money-max = Maximum money
 authenticated.overture.form.label.email = Email
 
 ###### Button ######

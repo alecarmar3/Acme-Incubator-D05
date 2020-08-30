@@ -41,21 +41,24 @@ public class AuthenticatedBulletinCreateService implements AbstractCreateService
 	}
 
 	@Override
-	public void unbind(final Request<Bulletin> request, final Bulletin entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "author", "title", "text", "moment", "category");
-	}
-
-	@Override
 	public void bind(final Request<Bulletin> request, final Bulletin entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		Date moment = new Date(System.currentTimeMillis() - 1);
+		entity.setMoment(moment);
+
+		request.bind(entity, errors, "moment");
+	}
+
+	@Override
+	public void unbind(final Request<Bulletin> request, final Bulletin entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "author", "title", "text", "category");
 	}
 
 	@Override

@@ -21,7 +21,7 @@
 	<jstl:if test="${command !='create' }">
 	<acme:form-moment code="administrator.overture.form.label.creation-date" path="creationDate" readonly="true"/>
 	</jstl:if>
-	<jstl:if test="${command !='update' }">
+	<jstl:if test="${command !='create' }">
 	<acme:form-moment code="administrator.overture.form.label.update-date" path="updateDate" readonly="true"/>
 	</jstl:if>
 	

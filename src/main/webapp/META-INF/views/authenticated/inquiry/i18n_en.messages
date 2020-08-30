@@ -22,7 +22,7 @@ authenticated.inquiry.form.label.creation-date = Creation date
 authenticated.inquiry.form.label.deadline = Deadline
 authenticated.inquiry.form.label.body = Body
 authenticated.inquiry.form.label.money-min = Minimum money
-authenticated.inquiry.form.label.money-max = Máximum money
+authenticated.inquiry.form.label.money-max = Maximum money
 authenticated.inquiry.form.label.email = Email
 
 ###### Button ######
