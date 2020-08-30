@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.AccountingRecord;
 import acme.entities.InvestmentRound;
 import acme.framework.repositories.AbstractRepository;
 

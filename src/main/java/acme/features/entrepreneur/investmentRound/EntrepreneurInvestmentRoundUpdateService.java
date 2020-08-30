@@ -31,7 +31,9 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 	public boolean authorise(final Request<InvestmentRound> request) {
 		assert request != null;
 
-		return true;
+		Boolean isNotFinalMode = this.repository.findFinalMode(request.getModel().getInteger("id")).equals(false);
+
+		return isNotFinalMode;
 	}
 
 	@Override

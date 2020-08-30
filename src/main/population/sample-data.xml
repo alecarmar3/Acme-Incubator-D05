@@ -296,7 +296,6 @@
 	<bean name="banner1" class="acme.entities.Banner">
 		<property name="picture" value="http://photo1.com"/>
 		<property name="slogan" value="This is the slogan 1"/>
-		<property name="updateDate" value="2020/6/25 12:00"/>
 		<property name="targetUrl" value="http://targetURL1.com"/>
 		<property name="creditCardNumber" value="4111111111111111"/>
 		<property name="holderName" value="Alberto"/>
@@ -308,7 +307,6 @@
 	<bean name="banner2" class="acme.entities.Banner">
 		<property name="picture" value="http://photo2.com"/>
 		<property name="slogan" value="This is the slogan 2"/>
-		<property name="updateDate" value="2020/6/25 12:00"/>
 		<property name="targetUrl" value="http://targetURL2.com"/>
 		<property name="creditCardNumber" value="3222222222222222"/>
 		<property name="holderName" value="Chari"/>
@@ -320,7 +318,6 @@
 	<bean name="banner3" class="acme.entities.Banner">
 		<property name="picture" value="http://photo3.com"/>
 		<property name="slogan" value="This is the slogan 3"/>
-		<property name="updateDate" value="2020/6/25 12:00"/>
 		<property name="targetUrl" value="http://targetURL3.com"/>
 		<property name="creditCardNumber" value="2333333333333333"/>
 		<property name="holderName" value="Khai"/>

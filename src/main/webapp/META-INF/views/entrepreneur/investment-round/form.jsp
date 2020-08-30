@@ -51,11 +51,35 @@
 	<acme:form-moment code="entrepreneur.investmentRound.label.updateDate" path="updateDate" readonly="true"/>
 	</jstl:if>
 	
+	<jstl:if test="${command ==('show' or 'create')}">
+	<jstl:if test="${!finalMode}">
 	<acme:form-textbox code="entrepreneur.investmentRound.label.kindOfRound" path="kindOfRound"/>
 	<acme:form-textbox code="entrepreneur.investmentRound.label.title" path="title"/>
 	<acme:form-textarea code="entrepreneur.investmentRound.label.description" path="description"/>
 	<acme:form-money code="entrepreneur.investmentRound.label.amountOfMoney" path="amountOfMoney"/>
 	<acme:form-url code="entrepreneur.investmentRound.label.additionalInfo" path="additionalInfo"/>
+	</jstl:if>
+	</jstl:if>
+	
+	<jstl:if test="${command ==('show')}">
+	<jstl:if test="${finalMode}">
+	<acme:form-textbox code="entrepreneur.investmentRound.label.kindOfRound" path="kindOfRound" readonly="true"/>
+	<acme:form-textbox code="entrepreneur.investmentRound.label.title" path="title" readonly="true"/>
+	<acme:form-textarea code="entrepreneur.investmentRound.label.description" path="description" readonly="true"/>
+	<acme:form-money code="entrepreneur.investmentRound.label.amountOfMoney" path="amountOfMoney" readonly="true"/>
+	<acme:form-url code="entrepreneur.investmentRound.label.additionalInfo" path="additionalInfo" readonly="true"/>
+	</jstl:if>
+	</jstl:if>
+	
+	<jstl:if test="${command ==('update')}">
+	<jstl:if test="${finalMode}">
+	<acme:form-textbox code="entrepreneur.investmentRound.label.kindOfRound" path="kindOfRound"/>
+	<acme:form-textbox code="entrepreneur.investmentRound.label.title" path="title"/>
+	<acme:form-textarea code="entrepreneur.investmentRound.label.description" path="description"/>
+	<acme:form-money code="entrepreneur.investmentRound.label.amountOfMoney" path="amountOfMoney"/>
+	<acme:form-url code="entrepreneur.investmentRound.label.additionalInfo" path="additionalInfo"/>
+	</jstl:if>
+	</jstl:if>
 	
 	<jstl:if test="${command ==('show')}">
 	<acme:form-textbox code="entrepreneur.investmentRound.label.entrepreneur" path="entrepreneur.userAccount.username" readonly="true"/>
@@ -63,7 +87,9 @@
   	<acme:form-submit code="authenticated.investmentRound.workProgramme" method="get" action="/authenticated/activity/list?id=${id}"/>
   	</jstl:if>
   	
+  	<jstl:if test="${!finalMode}">
   	<acme:form-submit test="${command == 'show'}" code="entrepreneur.investmentRound.form.button.update" action="/entrepreneur/investment-round/update"/>
+	</jstl:if>
 	<acme:form-submit test="${command == 'show'}" code="entrepreneur.investmentRound.form.button.delete" action="/entrepreneur/investment-round/delete"/>
 	<acme:form-submit test="${command == 'create'}" code="entrepreneur.investmentRound.form.button.create" action="/entrepreneur/investment-round/create"/>
 	<acme:form-submit test="${command == 'update'}" code="entrepreneur.investmentRound.form.button.update" action="/entrepreneur/investment-round/update"/>

@@ -40,12 +40,20 @@ public class AuthenticatedInvestmentRoundListMineService implements AbstractList
 	public Collection<InvestmentRound> findMany(final Request<InvestmentRound> request) {
 		assert request != null;
 
-		Collection<InvestmentRound> result;
+		Collection<InvestmentRound> result, bookkeeper, investor, entrepreneur;
 
 		Principal principal = request.getPrincipal();
 		int id = principal.getAccountId();
 
-		result = this.repository.findMyInvestmentRounds(id);
+		bookkeeper = this.repository.findBookkeeperInvestmentRounds(id);
+
+		investor = this.repository.findInvestorInvestmentRounds(id);
+
+		entrepreneur = this.repository.findEntrepreneurInvestmentRounds(id);
+
+		result = bookkeeper;
+		result.addAll(investor);
+		result.addAll(entrepreneur);
 
 		return result;
 	}

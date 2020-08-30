@@ -327,15 +327,12 @@
     insert into `hibernate_sequence` values ( 1 );
 create index IDXh8dbpsf17u4nh0t16sw1b86pt on `accounting_record` (`investment_round_id`);
 create index IDX2fie4tfqjhatmlwtwev59aqva on `accounting_record` (`bookkeeper_id`);
+create index IDX1l5yvnnpt4wxudkqaoaqup4xw on `activity` (`investment_round_id`);
 create index IDX5s5lij699jj18tptn7wrwol2r on `activity` (`end_date`, `investment_round_id`);
-create index IDXk5hiuy4v1q26c8edpevbsb6nw on `application` (`status`, `investor_id`);
-create index IDXa91bud5njtdgbcs992l3fc8dl on `application` (`investor_id`);
+create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
 
     alter table `application` 
        add constraint UK_ao7wxw7e7mkj6g5q49yq2fw8d unique (`ticker`);
-
-    alter table `banner` 
-       add constraint UK_p8qqa0apsb9hsacl8y4mie6m unique (`credit_card_number`);
 create index IDXdxb7pmiadoafycn8trxof2cuy on `bookkeeper_request` (`authenticated_id`);
 
     alter table `bookkeeper_request` 
@@ -347,6 +344,7 @@ create index IDXcaskyi2xiccqj4na2coao5m4o on `investment_round` (`entrepreneur_i
     alter table `investment_round` 
        add constraint UK_408l1ohatdkkut5bkt0eu6ifs unique (`ticker`);
 create index IDXbeg6sje8j6vxxen08e9tv15br on `message` (`investment_round_id`);
+create index IDXrcpel5hblr62lfjr9gmpk2wgi on `notice` (`deadline`);
 create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
 
     alter table `user_account` 
