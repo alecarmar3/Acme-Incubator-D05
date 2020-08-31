@@ -49,7 +49,7 @@ master.menu.authenticated.inquiry.list = List inquiries
 master.menu.authenticated.overture.list = List overtures
 master.menu.authenticated.challenge.list = List challenges
 master.menu.authenticated.investmentRound.list = List investment rounds
-master.menu.authenticated.investmentRound.listMine = List my forums
+master.menu.authenticated.forum.listMine = List my forums
 
 # master.menu.administrator ###################################################
 
@@ -68,7 +68,7 @@ master.menu.administrator.toolRecord.create = Create tool record
 master.menu.administrator.challenge.list = List challenges
 master.menu.administrator.challenge.create = Create challenge
 master.menu.administrator.banner.list = List banners
-master.menu.administrator.bookkeeperRequest.list = List Bookkeeper requests
+master.menu.administrator.banner.create = Create banner
 master.menu.administrator.dashboard.show = Show dashboard
 master.menu.administrator.configuration.show = Show configuration
 master.menu.administrator.shutdown = Shut down

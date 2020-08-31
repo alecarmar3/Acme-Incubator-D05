@@ -16,6 +16,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Length;
+
 import acme.entities.roles.Investor;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.DomainEntity;
@@ -54,6 +56,7 @@ public class Application extends DomainEntity {
 	private ApplicationStatus	status;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				statement;
 
 	@NotNull

@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.DomainEntity;
@@ -24,19 +25,17 @@ import lombok.Setter;
 @Setter
 public class Record extends DomainEntity {
 
-	// Serialization identifier -----------------------------------------------
-
 	private static final long	serialVersionUID	= 1L;
 
-	// Attributes --------------------------------------------------------------
-
 	@NotBlank
+	@Length(max = 250)
 	private String				title;
 
 	@NotBlank
 	private String				activitySector;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				inventorName;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -44,14 +43,17 @@ public class Record extends DomainEntity {
 	private Date				updateDate;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				description;
 
 	@NotBlank
 	@URL
+	@Length(max = 250)
 	private String				website;
 
 	@NotBlank
 	@Email
+	@Length(max = 250)
 	private String				email;
 
 	@NotBlank

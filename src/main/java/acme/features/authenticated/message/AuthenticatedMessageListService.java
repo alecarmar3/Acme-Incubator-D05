@@ -44,7 +44,7 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 
 		id = request.getModel().getInteger("id");
 
-		result = this.repository.findMessagesOfInvestmentRound(id);
+		result = this.repository.findMessagesOfForum(id);
 
 		return result;
 	}

@@ -11,8 +11,6 @@ import lombok.Setter;
 @Setter
 public class ToolRecord extends Record {
 
-	// Serialization identifier -----------------------------------------------
-
 	private static final long serialVersionUID = 1L;
 
 }

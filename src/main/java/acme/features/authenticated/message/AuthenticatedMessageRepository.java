@@ -16,8 +16,8 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 	@Query("select ir from Message ir where ir.id = ?1")
 	Message findOneById(int id);
 
-	@Query("select m from Message m where m.investmentRound.id = ?1")
-	Collection<Message> findMessagesOfInvestmentRound(int id);
+	@Query("select m from Message m where m.forum.id = ?1")
+	Collection<Message> findMessagesOfForum(int id);
 
 	@Query("select ir from InvestmentRound ir where ir.id = ?1")
 	InvestmentRound getInvestmentRoundById(int id);

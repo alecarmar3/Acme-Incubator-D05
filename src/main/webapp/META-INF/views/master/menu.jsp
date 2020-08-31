@@ -39,7 +39,7 @@
 			<acme:menu-suboption code="master.menu.authenticated.overture.list" action="/authenticated/overture/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.challenge.list" action="/authenticated/challenge/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.investmentRound.list" action="/authenticated/investment-round/list-active"/>
-			<acme:menu-suboption code="master.menu.authenticated.investmentRound.listMine" action="/authenticated/investment-round/list-mine"/>
+			<acme:menu-suboption code="master.menu.authenticated.forum.listMine" action="/authenticated/forum/list-mine"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -62,6 +62,7 @@
 			<acme:menu-suboption code="master.menu.administrator.challenge.create" action="/administrator/challenge/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.banner.list" action="/administrator/banner/list"/>
+			<acme:menu-suboption code="master.menu.administrator.banner.create" action="/administrator/banner/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.bookkeeperRequest.list" action="/administrator/bookkeeper-request/list"/>
 			<acme:menu-separator/>

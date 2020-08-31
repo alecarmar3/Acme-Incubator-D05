@@ -11,6 +11,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.DomainEntity;
@@ -26,9 +27,11 @@ public class Banner extends DomainEntity {
 
 	@NotBlank
 	@URL
+	@Length(max = 250)
 	private String				picture;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				slogan;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -37,6 +40,7 @@ public class Banner extends DomainEntity {
 
 	@NotBlank
 	@URL
+	@Length(max = 250)
 	private String				targetUrl;
 
 	@NotBlank
@@ -44,9 +48,11 @@ public class Banner extends DomainEntity {
 	private String				creditCardNumber; //number
 
 	@NotBlank
+	@Length(max = 250)
 	private String				holderName;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				brand;
 
 	@Pattern(regexp = "^\\d{2}\\/\\d{2}$", message = "{default.banner.error.expiration-date-pattern}")

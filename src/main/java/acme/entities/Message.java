@@ -14,6 +14,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.Length;
+
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +23,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
+
 	@Index(columnList = "investment_round_id")
 })
 public class Message extends DomainEntity {
@@ -33,6 +35,7 @@ public class Message extends DomainEntity {
 	// Attributes --------------------------------------------------------------
 
 	@NotBlank
+	@Length(max = 250)
 	private String				title;
 
 	@NotNull
@@ -40,14 +43,16 @@ public class Message extends DomainEntity {
 	@Past
 	private Date				creationDate;
 
+	@Length(max = 250)
 	private String				tags;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				body;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private InvestmentRound		investmentRound;
+	private Forum				forum;
 
 }

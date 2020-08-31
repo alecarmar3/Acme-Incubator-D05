@@ -14,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.datatypes.Money;
@@ -36,6 +37,7 @@ public class Activity extends DomainEntity {
 	// Attributes --------------------------------------------------------------
 
 	@NotBlank
+	@Length(max = 250)
 	private String				title;
 
 	@NotNull
@@ -52,9 +54,11 @@ public class Activity extends DomainEntity {
 	private Money				budget; //The sum bust be equal to the InvestmentRound.amountOfMoney
 
 	@NotBlank
+	@Length(max = 250)
 	private String				body;
 
 	@URL
+	@Length(max = 250)
 	private String				webLinks;
 
 	@NotNull
