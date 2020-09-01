@@ -15,7 +15,7 @@ public interface AuthenticatedAccountingRecordRepository extends AbstractReposit
 	@Query("select ar from AccountingRecord ar where ar.id = ?1")
 	AccountingRecord findOneById(int id);
 
-	@Query("select ar from AccountingRecord ar where ar.investmentRound.id = ?1")
+	@Query("select ar from AccountingRecord ar where ar.investmentRound.id = ?1 and ar.finalMode = true")
 	Collection<AccountingRecord> findItsAccountingRecords(int id);
 
 }

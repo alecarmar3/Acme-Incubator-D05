@@ -13,4 +13,9 @@ authenticated.forum.label.creationDate = Fecha de creación
 authenticated.forum.label.investmentRound = Ronda de inversión
 
 authenticated.forum.button.getMessages = Ver mensajes
+authenticated.forum.button.postMessage = Escribir mensaje
+authenticated.participates-in.button.add-participant = Añadir participante
+authenticated.forum.button.list-participants = Listar participantes
+authenticated.forum.button.create = Crear
+authenticated.forum.button.delete = Eliminar
 authenticated.forum.button.return = Volver

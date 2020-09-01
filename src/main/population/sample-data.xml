@@ -693,36 +693,42 @@
 		<property name="title" value="Forum 1"/>
 		<property name="creationDate" value="2020/06/27 13:34"/>
 		<property name="investmentRound" ref="investmentRound2"/>
+		<property name="owner" ref="entrepreneur3Authenticated"/>
 	</bean>
 	
 	<bean name="forum2" class="acme.entities.Forum">
 		<property name="title" value="Forum 2"/>
 		<property name="creationDate" value="2019/07/17 11:04"/>
 		<property name="investmentRound" ref="investmentRound1"/>
+		<property name="owner" ref="entrepreneur1Authenticated"/>
 	</bean>
 	
 	<bean name="forum3" class="acme.entities.Forum">
 		<property name="title" value="Forum 3"/>
 		<property name="creationDate" value="2019/11/04 22:30"/>
 		<property name="investmentRound" ref="investmentRound1"/>
+		<property name="owner" ref="entrepreneur1Authenticated"/>
 	</bean>
 	
 	<bean name="forum4" class="acme.entities.Forum">
 		<property name="title" value="Forum 4"/>
 		<property name="creationDate" value="2017/03/22 09:40"/>
-		<property name="investmentRound" ref="investmentRound2"/>
+		<property name="investmentRound" ref="investmentRound3"/>
+		<property name="owner" ref="entrepreneur1Authenticated"/>
 	</bean>
 	
 	<bean name="forum5" class="acme.entities.Forum">
 		<property name="title" value="Forum 5"/>
 		<property name="creationDate" value="2020/04/15 12:15"/>
-		<property name="investmentRound" ref="investmentRound2"/>
+		<property name="investmentRound" ref="investmentRound1"/>
+		<property name="owner" ref="entrepreneur1Authenticated"/>
 	</bean>
 	
 	<bean name="forum6" class="acme.entities.Forum">
 		<property name="title" value="Forum 6"/>
 		<property name="creationDate" value="2019/06/09 08:50"/>
-		<property name="investmentRound" ref="investmentRound3"/>
+		<property name="investmentRound" ref="investmentRound2"/>
+		<property name="owner" ref="bookkeeper2Authenticated"/>
 	</bean>
 	
 		<!-- Messages -->
@@ -733,6 +739,7 @@
 		<property name="tags" value="urgent, work, cooperative"/>
 		<property name="body" value="hey, jose..."/>
 		<property name="forum" ref="forum1"/>
+		<property name="owner" ref="entrepreneur1Authenticated"/>
 	</bean>
 	
 	<bean name="message2" class="acme.entities.Message">
@@ -741,6 +748,7 @@
 		<property name="tags" value="books, information"/>
 		<property name="body" value="hey, maria could you please..."/>
 		<property name="forum" ref="forum1"/>
+		<property name="owner" ref="entrepreneur1Authenticated"/>
 	</bean>
 	
 	<bean name="message3" class="acme.entities.Message">
@@ -749,6 +757,7 @@
 		<property name="tags" value="meeting"/>
 		<property name="body" value="hey, noelia did you realise of..."/>
 		<property name="forum" ref="forum3"/>
+		<property name="owner" ref="entrepreneur2Authenticated"/>
 	</bean>
 	
 	<bean name="message4" class="acme.entities.Message">
@@ -757,6 +766,15 @@
 		<property name="tags" value=""/>
 		<property name="body" value="hey, luis I was asked..."/>
 		<property name="forum" ref="forum5"/>
+		<property name="owner" ref="bookkeeper1Authenticated"/>
+	</bean>
+
+		<!-- Participations -->
+
+	
+	<bean name="participation1" class="acme.entities.ParticipatesIn">
+		<property name="participant" ref="entrepreneur1Authenticated"/>
+		<property name="forum" ref="forum2"/>
 	</bean>
 	
 		<!-- Activities -->
@@ -810,6 +828,7 @@
 		<property name="title" value="Investment round 1"/>
 		<property name="description" value="This is the investment round 1"/>
 		<property name="amountOfMoney" value="4511 EUR"/>
+		<property name="finalMode" value="false"/>
 		<property name="additionalInfo" value=""/>
 		<property name="entrepreneur" ref="entrepreneur1"/>
 	</bean>
@@ -821,6 +840,7 @@
 		<property name="title" value="Investment round 2"/>
 		<property name="description" value="This is the investment round 2"/>
 		<property name="amountOfMoney" value="6533 EUR"/>
+		<property name="finalMode" value="true"/>
 		<property name="additionalInfo" value=""/>
 		<property name="entrepreneur" ref="entrepreneur3"/>
 	</bean>
@@ -832,6 +852,7 @@
 		<property name="title" value="Investment round 3"/>
 		<property name="description" value="This is the investment round 3"/>
 		<property name="amountOfMoney" value="90050 EUR"/>
+		<property name="finalMode" value="true"/>
 		<property name="additionalInfo" value=""/>
 		<property name="entrepreneur" ref="entrepreneur1"/>
 	</bean>

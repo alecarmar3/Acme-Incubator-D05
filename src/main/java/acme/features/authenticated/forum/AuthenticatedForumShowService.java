@@ -29,6 +29,10 @@ public class AuthenticatedForumShowService implements AbstractShowService<Authen
 		assert entity != null;
 		assert model != null;
 
+		boolean isOwner = entity.getOwner().getId() == request.getPrincipal().getActiveRoleId();
+
+		model.setAttribute("isOwner", isOwner);
+
 		request.unbind(entity, model, "title", "creationDate", "investmentRound.title");
 	}
 

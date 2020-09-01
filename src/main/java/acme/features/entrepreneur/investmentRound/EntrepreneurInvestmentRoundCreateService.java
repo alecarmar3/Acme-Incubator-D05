@@ -14,12 +14,9 @@ import org.springframework.stereotype.Service;
 import acme.entities.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Errors;
-import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.components.Response;
 import acme.framework.entities.Principal;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -116,6 +113,11 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 			errors.state(request, tickerAvailable, "ticker", "default.error.already-in-use", entity.getTicker());
 		}
 
+		if (!errors.hasErrors("amountOfMoney")) {
+			Boolean amountOfMoneyEuros = entity.getAmountOfMoney().getCurrency().matches("€|EUROS|Euros|euros|EUR|Eur|eur");
+			errors.state(request, amountOfMoneyEuros, "amountOfMoney", "default.error.wrong-currency", entity.getAmountOfMoney());
+		}
+
 	}
 
 	@Override
@@ -127,16 +129,6 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		entity.setCreationDate(now);
 
 		this.repository.save(entity);
-	}
-
-	@Override
-	public void onSuccess(final Request<InvestmentRound> request, final Response<InvestmentRound> response) {
-		assert request != null;
-		assert response != null;
-
-		if (request.isMethod(HttpMethod.POST)) {
-			PrincipalHelper.handleUpdate();
-		}
 	}
 
 }

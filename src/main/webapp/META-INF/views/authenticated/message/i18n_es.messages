@@ -12,5 +12,9 @@ authenticated.message.label.title = Título
 authenticated.message.label.creationDate = Fecha de creación
 authenticated.message.label.tags = Etiquetas
 authenticated.message.label.body = Cuerpo
+authenticated.message.label.confirm-creation = Confirmar creación
+authenticated.message.label.username = Dueño
 
+
+authenticated.message.button.create = Crear
 authenticated.message.button.return = Volver

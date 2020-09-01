@@ -20,6 +20,8 @@
 	<acme:list-column code="authenticated.message.label.title" path="title" width="40%"/>
 	<acme:list-column code="authenticated.message.label.creationDate" path="creationDate" width="40%"/>
 	<acme:list-column code="authenticated.message.label.tags" path="tags" width="20%"/>
+	<acme:list-column code="authenticated.message.label.username" path="owner.userAccount.username" width="40%"/>	
+
 </acme:list>
 
 

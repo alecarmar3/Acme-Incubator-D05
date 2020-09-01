@@ -69,6 +69,7 @@ master.menu.administrator.challenge.list = Listar desafíos
 master.menu.administrator.challenge.create = Crear desafío
 master.menu.administrator.banner.list = Listar anuncios
 master.menu.administrator.banner.create = Crear anuncio
+master.menu.administrator.bookkeeperRequest.list = Listar peticiones para contable
 master.menu.administrator.dashboard.show = Mostrar estadísticas
 master.menu.administrator.configuration.show = Mostrar configuración
 master.menu.administrator.shutdown = Parar el sistema
@@ -84,8 +85,10 @@ master.menu.entrepreneur.application.list = Listar aplicaciones
 # master.menu.bookkeeper ########################################################
 
 master.menu.bookkeeper = Contable
-master.menu.bookkeeper.investmentRound.list.written = Listar mis rondas de investigación escritas
-master.menu.bookkeeper.investmentRound.list.notWritten = Listar otras rondas de investigación
+master.menu.bookkeeper.investmentRound.list.written = Listar mis rondas de inversión escritas
+master.menu.bookkeeper.investmentRound.list.notWritten = Listar otras rondas de inversión
+master.menu.bookkeeper.accountingRecords.list-mine = Listar mis registros de contabilidad
+
 
 # master.menu.investor ########################################################
 

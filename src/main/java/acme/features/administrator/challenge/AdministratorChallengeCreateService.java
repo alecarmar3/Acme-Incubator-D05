@@ -63,17 +63,17 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 
 		if (!errors.hasErrors("rookieReward")) {
 			Boolean rookieRewardEuros = entity.getRookieReward().getCurrency().matches("€|EUROS|Euros|euros|EUR|Eur|eur");
-			errors.state(request, rookieRewardEuros, "rookieReward", "administrator.challenge.error.wrong-currency", entity.getRookieReward());
+			errors.state(request, rookieRewardEuros, "rookieReward", "default.error.wrong-currency", entity.getRookieReward());
 		}
 
 		if (!errors.hasErrors("averageReward")) {
 			Boolean averageRewardEuros = entity.getAverageReward().getCurrency().matches("€|EUROS|Euros|euros|EUR|Eur|eur");
-			errors.state(request, averageRewardEuros, "averageReward", "administrator.challenge.error.wrong-currency", entity.getAverageReward());
+			errors.state(request, averageRewardEuros, "averageReward", "default.error.wrong-currency", entity.getAverageReward());
 		}
 
 		if (!errors.hasErrors("expertReward")) {
 			Boolean expertRewardEuros = entity.getExpertReward().getCurrency().matches("€|EUROS|Euros|euros|EUR|Eur|eur");
-			errors.state(request, expertRewardEuros, "expertReward", "administrator.challenge.error.wrong-currency", entity.getExpertReward());
+			errors.state(request, expertRewardEuros, "expertReward", "default.error.wrong-currency", entity.getExpertReward());
 		}
 
 		if (!errors.hasErrors("rookieReward") && !errors.hasErrors("averageReward")) {

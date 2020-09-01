@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.Application;
 import acme.entities.InvestmentRound;
+import acme.entities.roles.Bookkeeper;
 import acme.framework.entities.UserRole;
 import acme.framework.repositories.AbstractRepository;
 
@@ -29,12 +30,12 @@ public interface AuthenticatedInvestmentRoundRepository extends AbstractReposito
 	@Query("select ir from InvestmentRound ir where ir.entrepreneur.userAccount.id = ?1")
 	Collection<InvestmentRound> findEntrepreneurInvestmentRounds(int id);
 
-	@Query("select ir from InvestmentRound ir")
-	Collection<InvestmentRound> findAllRounds();
-
 	@Query("select a from Application a where a.investmentRound.id = ?1 AND a.investor.userAccount.id = ?2")
 	Collection<Application> exists(int investmentRoundId, int id);
 
 	@Query("select ur from UserRole ur where ur.userAccount.id = ?1")
 	Collection<UserRole> findUserAccountRoles(int id);
+
+	@Query("select b from Bookkeeper b where b.userAccount.id = ?1")
+	Bookkeeper getBookkeeperByAccountId(int id);
 }

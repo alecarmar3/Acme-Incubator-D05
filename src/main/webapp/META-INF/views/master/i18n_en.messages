@@ -69,6 +69,7 @@ master.menu.administrator.challenge.list = List challenges
 master.menu.administrator.challenge.create = Create challenge
 master.menu.administrator.banner.list = List banners
 master.menu.administrator.banner.create = Create banner
+master.menu.administrator.bookkeeperRequest.list = List Bookkeeper requests
 master.menu.administrator.dashboard.show = Show dashboard
 master.menu.administrator.configuration.show = Show configuration
 master.menu.administrator.shutdown = Shut down
@@ -85,6 +86,7 @@ master.menu.entrepreneur.application.list = List applications
 master.menu.bookkeeper = Bookkeeper
 master.menu.bookkeeper.investmentRound.list.written = List my written investment rounds
 master.menu.bookkeeper.investmentRound.list.notWritten = List others investment rounds
+master.menu.bookkeeper.accountingRecords.list-mine = List my accounting records
 
 # master.menu.investor ########################################################
 

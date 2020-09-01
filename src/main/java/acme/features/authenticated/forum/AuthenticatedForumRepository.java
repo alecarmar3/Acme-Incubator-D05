@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.Forum;
 import acme.entities.InvestmentRound;
+import acme.entities.Message;
+import acme.framework.entities.Authenticated;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -18,9 +20,6 @@ public interface AuthenticatedForumRepository extends AbstractRepository {
 
 	@Query("select f from Forum f where f.investmentRound.id = ?1")
 	Collection<Forum> findForumsOfInvestmentRound(int id);
-
-	@Query("select f from Forum f where f.investmentRound.id = ?1")
-	Collection<Forum> findForumsOfMine(int id);
 
 	@Query("select a.investmentRound from Application a where a.status='ACCEPTED' AND a.investor.userAccount.id = ?1")
 	Collection<InvestmentRound> findInvestorInvestmentRounds(int id);
@@ -34,10 +33,13 @@ public interface AuthenticatedForumRepository extends AbstractRepository {
 	@Query("select ir from InvestmentRound ir where ir.id = ?1")
 	InvestmentRound getInvestmentRoundById(int id);
 
-	@Query("select a.investmentRound from Application a where a.investor.userAccount.id = ?1 AND a.status='ACCEPTED'")
-	Collection<InvestmentRound> findInvestmentRoundsOfInvestorById(int id);
+	@Query("select m from Message m where m.forum.id = ?1")
+	Collection<Message> findManyMessagesByForumId(int jobId);
 
-	@Query("select ir from InvestmentRound ir where ir.entrepreneur.userAccount.id = ?1")
-	Collection<InvestmentRound> findInvestmentRoundsOfEntrepreneurById(int id);
+	@Query("select a from Authenticated a where a.id = ?1")
+	Authenticated findAuthenticatedById(int authId);
+
+	@Query("select pi.forum from ParticipatesIn pi where pi.participant.id = ?1")
+	Collection<Forum> findManyByAuthenticatedId(int id);
 
 }

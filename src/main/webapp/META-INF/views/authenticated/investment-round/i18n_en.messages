@@ -20,6 +20,7 @@ authenticated.investmentRound.label.entrepreneur = Entrepreneur
 
 authenticated.investmentRound.workProgramme = Work Programme
 authenticated.investmentRound.accountingRecords = List Accounting records
-authenticated.investmentRound.button.getMessages = See messages
+authenticated.investmentRound.accountingRecord = Write Accounting record
+authenticated.investmentRound.forum = Create forum
 authenticated.investmentRound.apply = Apply for this Investment round
 authenticated.investmentRound.button.return = Return

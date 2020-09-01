@@ -16,6 +16,7 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.framework.entities.Authenticated;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,8 +24,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
-	@Index(columnList = "investment_round_id")
+@Table(indexes = {
+	@Index(columnList = "forum_id")
 })
 public class Message extends DomainEntity {
 
@@ -54,5 +55,10 @@ public class Message extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Forum				forum;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Authenticated		owner;
 
 }

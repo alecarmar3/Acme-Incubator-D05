@@ -35,7 +35,6 @@ administrator.challenge.form.button.return = Return
 
 ###### Errors ######
 
-administrator.challenge.error.wrong-currency = Money amounts must be expressed in Euros
 administrator.challenge.error.average-higher-than-rookie = Rookie reward must be lower than Average reward
 administrator.challenge.error.average-lower-than-rookie = Average reward must be higher than Rookie reward
 administrator.challenge.error.expert-lower-than-average = Expert reward must be higher than Average reward

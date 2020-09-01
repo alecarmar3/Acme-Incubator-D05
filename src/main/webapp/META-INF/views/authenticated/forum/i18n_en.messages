@@ -13,4 +13,9 @@ authenticated.forum.label.creationDate = Creation date
 authenticated.forum.label.investmentRound = Investment round
 
 authenticated.forum.button.getMessages = Get messages
+authenticated.forum.button.postMessage = Post message
+authenticated.participates-in.button.add-participant = Add participant
+authenticated.forum.button.list-participants = List participants
+authenticated.forum.button.create = Create
+authenticated.forum.button.delete = Delete
 authenticated.forum.button.return = Return

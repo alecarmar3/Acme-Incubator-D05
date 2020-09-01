@@ -11,6 +11,7 @@ import acme.entities.Forum;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -42,16 +43,20 @@ public class AuthenticatedForumListMineService implements AbstractListService<Au
 
 		Collection<Forum> result = new ArrayList<Forum>();
 
-		int id = request.getPrincipal().getAccountId();
+		Collection<Forum> participated = new ArrayList<Forum>();
+
+		Principal principal = request.getPrincipal();
+		int id = principal.getAccountId();
+
+		participated = this.repository.findManyByAuthenticatedId(principal.getActiveRoleId());
 
 		this.repository.findEntrepreneurInvestmentRounds(id).stream().forEach(x -> result.addAll(this.repository.findForumsOfInvestmentRound(x.getId())));
 		this.repository.findBookkeeperInvestmentRounds(id).stream().forEach(x -> result.addAll(this.repository.findForumsOfInvestmentRound(x.getId())));
 		this.repository.findInvestorInvestmentRounds(id).stream().forEach(x -> result.addAll(this.repository.findForumsOfInvestmentRound(x.getId())));
 
+		result.addAll(participated);
+
 		return result;
 	}
 
-	public void onSuccess() {
-
-	}
 }

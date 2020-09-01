@@ -32,7 +32,7 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "creationDate", "tags");
+		request.unbind(entity, model, "title", "creationDate", "tags", "owner.userAccount.username");
 	}
 
 	@Override
@@ -49,7 +49,4 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 		return result;
 	}
 
-	public void onSuccess() {
-
-	}
 }

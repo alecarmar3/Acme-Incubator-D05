@@ -35,7 +35,6 @@ administrator.challenge.form.button.return = Volver
 
 ###### Errors ######
 
-administrator.challenge.error.wrong-currency = Las cantidades de dinero deben ser expresadas en Euros
 administrator.challenge.error.average-higher-than-rookie = La recompensa de novato debe ser menor que la de intermedio
 administrator.challenge.error.average-lower-than-rookie = La recompensa de intermedio debe ser mayor que la de novato
 administrator.challenge.error.expert-lower-than-average = La recompensa de experto debe ser mayor que la de intermedio

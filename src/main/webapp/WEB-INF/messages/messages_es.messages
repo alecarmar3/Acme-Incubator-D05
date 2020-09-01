@@ -24,6 +24,7 @@ default.error.ticker-pattern = Ticker format must fit: “LLL-DD-DDDDDD” donde
 default.error.ticker-pattern.letters = Las primeras tres letras deben coincidir con las primeras tres letras de tu sector de actividad
 default.error.ticker-pattern.yearDigits = Los dos dígitos centrales deben coincidir con los dos últimos dígitos del año actual
 default.error.conversion = Valor incorrecto
+default.error.wrong-currency = Las cantidades de dinero deben ser expresadas en Euros
 default.error.endpoint-unavailable = End-point no disponible
 default.error.not-authorised = Acceso no autorizado
 default.error.already-in-use = Actualmente en uso
@@ -31,6 +32,8 @@ default.error.insufficient-budget = El presupuesto del programa de trabajo es me
 default.error.updating-unavailable = No se puede actualizar mientras se encuentre en modo final
 default.error.has-applications = No se puede eliminar mientras haya sido aplicada al menos una vez
 default.error.spam = No se puede actualizar mientras contenga palabras de spam
+default.message.error.spam = No se puede crear mientras contenga palabras de spam
+default.error.must-accept = Se debe confirmar la creación
 default.error.justification-needed = Es necesaria una justificación para las aplicaciones rechazadas
 
 

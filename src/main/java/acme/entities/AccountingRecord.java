@@ -25,19 +25,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "investment_round_id")
+	@Index(columnList = "investment_round_id, final_mode"), @Index(columnList = "bookkeeper_id")
 })
 public class AccountingRecord extends DomainEntity {
 
 	// Serialization identifier -----------------------------------------------
 
-	private static final long		serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	// Attributes --------------------------------------------------------------
 
 	@NotBlank
 	@Length(max = 250)
-	private String					title;
+	private String				title;
 
 	@NotNull
 	private Boolean				finalMode;
@@ -45,20 +45,20 @@ public class AccountingRecord extends DomainEntity {
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	private Date					creationDate;
+	private Date				creationDate;
 
 	@NotBlank
 	@Length(max = 250)
-	private String					body;
+	private String				body;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Bookkeeper				bookkeeper;
+	private Bookkeeper			bookkeeper;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private InvestmentRound			investmentRound;
+	private InvestmentRound		investmentRound;
 
 }

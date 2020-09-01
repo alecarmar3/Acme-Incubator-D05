@@ -11,12 +11,9 @@ import acme.entities.ApplicationStatus;
 import acme.entities.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Errors;
-import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.components.Response;
 import acme.framework.entities.Principal;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -94,13 +91,4 @@ public class EntrepreneurApplicationUpdateAcceptService implements AbstractUpdat
 		this.repository.save(entity);
 	}
 
-	@Override
-	public void onSuccess(final Request<Application> request, final Response<Application> response) {
-		assert request != null;
-		assert response != null;
-
-		if (request.isMethod(HttpMethod.POST)) {
-			PrincipalHelper.handleUpdate();
-		}
-	}
 }
