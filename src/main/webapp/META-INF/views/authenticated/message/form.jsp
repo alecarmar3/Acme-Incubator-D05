@@ -17,9 +17,17 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.message.label.title" path="title"/>
-	<acme:form-moment code="authenticated.message.label.creationDate" path="creationDate"/>
+	<jstl:if test="${command !='create'}">
+	<acme:form-moment code="authenticated.message.label.creationDate" path="creationDate" readonly="true"/>
+	<acme:form-textbox code="authenticated.message.label.username" path="owner.userAccount.username" readonly="true"/>
+	</jstl:if>
 	<acme:form-textbox code="authenticated.message.label.tags" path="tags"/>
 	<acme:form-textbox code="authenticated.message.label.body" path="body"/>
-
+	
+	<jstl:if test="${command =='create'}">
+	<acme:form-checkbox code="authenticated.message.label.confirm-creation" path="accept"/>
+	</jstl:if>
+	
+	<acme:form-submit test="${command == 'create'}" code="authenticated.message.button.create" action="/authenticated/message/create?ForumId=${forum.id}"/>
   	<acme:form-return code="authenticated.message.button.return"/>
 </acme:form>

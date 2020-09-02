@@ -156,6 +156,16 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `forum` (
+       `id` integer not null,
+        `version` integer not null,
+        `creation_date` datetime(6),
+        `title` varchar(255),
+        `investment_round_id` integer not null,
+        `owner_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `inquiry` (
        `id` integer not null,
         `version` integer not null,
@@ -206,7 +216,8 @@
         `creation_date` datetime(6),
         `tags` varchar(255),
         `title` varchar(255),
-        `investment_round_id` integer not null,
+        `forum_id` integer not null,
+        `owner_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -235,6 +246,14 @@
         `money_min_currency` varchar(255),
         `title` varchar(255),
         `update_date` datetime(6),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `participates_in` (
+       `id` integer not null,
+        `version` integer not null,
+        `forum_id` integer not null,
+        `participant_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -327,27 +346,36 @@
     insert into `hibernate_sequence` values ( 1 );
 create index IDXh8dbpsf17u4nh0t16sw1b86pt on `accounting_record` (`investment_round_id`);
 create index IDX2fie4tfqjhatmlwtwev59aqva on `accounting_record` (`bookkeeper_id`);
-create index IDX5s5lij699jj18tptn7wrwol2r on `activity` (`end_date`, `investment_round_id`);
-create index IDXk5hiuy4v1q26c8edpevbsb6nw on `application` (`status`, `investor_id`);
+create index IDX1l5yvnnpt4wxudkqaoaqup4xw on `activity` (`investment_round_id`);
+create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
+create index IDXh86ff6by9fbmye5anrmj56xrq on `application` (`investment_round_id`);
+create index IDXj1shjic6mip5nyik4ywhvxiid on `application` (`ticker` asc);
 create index IDXa91bud5njtdgbcs992l3fc8dl on `application` (`investor_id`);
+create index IDXougcduaeldommk3nf4satsqdn on `application` (`investment_round_id`, `investor_id`);
 
     alter table `application` 
        add constraint UK_ao7wxw7e7mkj6g5q49yq2fw8d unique (`ticker`);
-
-    alter table `banner` 
-       add constraint UK_p8qqa0apsb9hsacl8y4mie6m unique (`credit_card_number`);
+create index IDX6kh58rnb79vi7dflxamp4ye4c on `bookkeeper` (`user_account_id`);
 create index IDXdxb7pmiadoafycn8trxof2cuy on `bookkeeper_request` (`authenticated_id`);
 
     alter table `bookkeeper_request` 
        add constraint UK_qvxp9h7at8vjbwgpi9q5s3fpl unique (`authenticated_id`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
+create index IDX8f40bqatbcvi4ru3bjwo3yo6d on `entrepreneur` (`user_account_id`);
+create index IDX801jxtf8obi1te3ru5paurkru on `forum` (`investment_round_id`);
+create index IDXg315o0l90grqbj4wcc9dyasjg on `forum` (`owner_id`);
 create index IDX9u3lu85o98y0tro95qasghg8e on `inquiry` (`deadline`);
 create index IDXcaskyi2xiccqj4na2coao5m4o on `investment_round` (`entrepreneur_id`);
+create index IDX9tsve2s3eqtxjjxxoqql2ul81 on `investment_round` (`ticker`);
 
     alter table `investment_round` 
        add constraint UK_408l1ohatdkkut5bkt0eu6ifs unique (`ticker`);
-create index IDXbeg6sje8j6vxxen08e9tv15br on `message` (`investment_round_id`);
+create index IDXay1h91e0c79xwvohu2dy19um1 on `investor` (`user_account_id`);
+create index IDX3qepdx8lwew1ng35nkn22076s on `message` (`forum_id`);
+create index IDXrcpel5hblr62lfjr9gmpk2wgi on `notice` (`deadline`);
 create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
+create index IDXa8qbvbh5xna72e01lucu56w7t on `participates_in` (`participant_id`);
+create index IDX8m0ykoycrhcuhp138wn9n3wjd on `participates_in` (`forum_id`);
 
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
@@ -412,6 +440,16 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `forum` 
+       add constraint `FKq8ggcjgl5by5gf6l5bji632hu` 
+       foreign key (`investment_round_id`) 
+       references `investment_round` (`id`);
+
+    alter table `forum` 
+       add constraint `FKohunr24m4s1n5mgs3eoqtscsv` 
+       foreign key (`owner_id`) 
+       references `authenticated` (`id`);
+
     alter table `investment_round` 
        add constraint `FKkj1l8c2ftn9c65y061me6t37j` 
        foreign key (`entrepreneur_id`) 
@@ -423,9 +461,24 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
        references `user_account` (`id`);
 
     alter table `message` 
-       add constraint `FKc4w1gj5ff1rob521gutst6l2r` 
-       foreign key (`investment_round_id`) 
-       references `investment_round` (`id`);
+       add constraint `FKfwwpivgx5j4vw4594dgrw884q` 
+       foreign key (`forum_id`) 
+       references `forum` (`id`);
+
+    alter table `message` 
+       add constraint `FKjkp3iptdb6euvvnncku7jxblb` 
+       foreign key (`owner_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participates_in` 
+       add constraint `FKgem9s6jnp8gjaptj40buukpjd` 
+       foreign key (`forum_id`) 
+       references `forum` (`id`);
+
+    alter table `participates_in` 
+       add constraint `FKp8dubhjpvwx0mgn144chnj2ya` 
+       foreign key (`participant_id`) 
+       references `authenticated` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 

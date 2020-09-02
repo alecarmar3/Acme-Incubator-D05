@@ -1,4 +1,3 @@
-// elreyrata 22.11.19
 
 package acme.entities;
 
@@ -9,6 +8,8 @@ import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import acme.framework.entities.DomainEntity;
 import acme.framework.entities.UserAccount;
@@ -30,9 +31,11 @@ public class BookkeeperRequest extends DomainEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
+	@Length(max = 250)
 	private String					firmName;
 
 	@NotBlank
+	@Length(max = 250)
 	private String					responsibilityStatement;
 
 	@NotNull

@@ -15,6 +15,7 @@ investor.application.label.investmentMoneyOffer = Investment money offer
 investor.application.label.investor = Investor
 investor.application.label.investmentRound = Investment round
 investor.application.label.status = Status
+investor.application.label.justification = Justification
 
 investor.application.form.button.create = Create
 investor.application.button.return = Return

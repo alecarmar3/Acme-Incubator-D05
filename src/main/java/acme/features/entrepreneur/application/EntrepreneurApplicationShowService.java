@@ -1,6 +1,8 @@
 
 package acme.features.entrepreneur.application;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,14 @@ public class EntrepreneurApplicationShowService implements AbstractShowService<E
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
-		return true;
+
+		Collection<Application> madeToMines = this.repository.findApplicationsMadeToMyInvestmentRounds(request.getPrincipal().getActiveRoleId());
+
+		Application requested = this.repository.findOneById(request.getModel().getInteger("id"));
+
+		Boolean madeToMine = madeToMines.contains(requested);
+
+		return madeToMine;
 	}
 
 	@Override

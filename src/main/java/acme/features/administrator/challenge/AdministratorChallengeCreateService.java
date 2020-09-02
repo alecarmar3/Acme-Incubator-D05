@@ -63,30 +63,30 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 
 		if (!errors.hasErrors("rookieReward")) {
 			Boolean rookieRewardEuros = entity.getRookieReward().getCurrency().matches("€|EUROS|Euros|euros|EUR|Eur|eur");
-			errors.state(request, rookieRewardEuros, "rookieReward", "administrator.challenge.error.wrong-currency", entity.getRookieReward());
-		}
-
-		if (!errors.hasErrors("rookieReward")) {
-			Boolean lowerThanAverage = entity.getAverageReward().getAmount() > entity.getRookieReward().getAmount();
-			errors.state(request, lowerThanAverage, "rookieReward", "administrator.challenge.error.average-higher-than-rookie");
+			errors.state(request, rookieRewardEuros, "rookieReward", "default.error.wrong-currency", entity.getRookieReward());
 		}
 
 		if (!errors.hasErrors("averageReward")) {
 			Boolean averageRewardEuros = entity.getAverageReward().getCurrency().matches("€|EUROS|Euros|euros|EUR|Eur|eur");
-			errors.state(request, averageRewardEuros, "averageReward", "administrator.challenge.error.wrong-currency", entity.getAverageReward());
-		}
-
-		if (!errors.hasErrors("averageReward")) {
-			Boolean higherThanRookie = entity.getAverageReward().getAmount() > entity.getRookieReward().getAmount();
-			errors.state(request, higherThanRookie, "averageReward", "administrator.challenge.error.average-lower-than-rookie");
+			errors.state(request, averageRewardEuros, "averageReward", "default.error.wrong-currency", entity.getAverageReward());
 		}
 
 		if (!errors.hasErrors("expertReward")) {
 			Boolean expertRewardEuros = entity.getExpertReward().getCurrency().matches("€|EUROS|Euros|euros|EUR|Eur|eur");
-			errors.state(request, expertRewardEuros, "expertReward", "administrator.challenge.error.wrong-currency", entity.getExpertReward());
+			errors.state(request, expertRewardEuros, "expertReward", "default.error.wrong-currency", entity.getExpertReward());
 		}
 
-		if (!errors.hasErrors("expertReward")) {
+		if (!errors.hasErrors("rookieReward") && !errors.hasErrors("averageReward")) {
+			Boolean lowerThanAverage = entity.getAverageReward().getAmount() > entity.getRookieReward().getAmount();
+			errors.state(request, lowerThanAverage, "rookieReward", "administrator.challenge.error.average-higher-than-rookie");
+		}
+
+		if (!errors.hasErrors("averageReward") && !errors.hasErrors("rookieReward")) {
+			Boolean higherThanRookie = entity.getAverageReward().getAmount() > entity.getRookieReward().getAmount();
+			errors.state(request, higherThanRookie, "averageReward", "administrator.challenge.error.average-lower-than-rookie");
+		}
+
+		if (!errors.hasErrors("expertReward") && !errors.hasErrors("averageReward")) {
 			Boolean higherThanAverage = entity.getExpertReward().getAmount() > entity.getAverageReward().getAmount();
 			errors.state(request, higherThanAverage, "expertReward", "administrator.challenge.error.expert-lower-than-average");
 		}

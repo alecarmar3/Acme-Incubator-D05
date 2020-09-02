@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.Application;
 import acme.entities.InvestmentRound;
+import acme.entities.roles.Bookkeeper;
 import acme.framework.entities.UserRole;
 import acme.framework.repositories.AbstractRepository;
 
@@ -17,18 +18,24 @@ public interface AuthenticatedInvestmentRoundRepository extends AbstractReposito
 	@Query("select ir from InvestmentRound ir where ir.id = ?1")
 	InvestmentRound findOneById(int id);
 
-	@Query("select ir from InvestmentRound ir where exists(select a from Activity a where a.endDate > current_date() AND a.investmentRound.id = ir.id)")
+	@Query("select ir from InvestmentRound ir where ir.finalMode = true")
 	Collection<InvestmentRound> findActiveInvestmentRounds();
 
-	@Query("select a.investmentRound from Application a where a.status='ACCEPTED' AND (a.investor.userAccount.id = ?1 OR a.investmentRound.entrepreneur.userAccount.id = ?1)")
-	Collection<InvestmentRound> findMyInvestmentRounds(int id);
+	@Query("select a.investmentRound from Application a where a.status='ACCEPTED' AND a.investor.userAccount.id = ?1")
+	Collection<InvestmentRound> findInvestorInvestmentRounds(int id);
 
-	@Query("select ir from InvestmentRound ir")
-	Collection<InvestmentRound> findAllRounds();
+	@Query("select ar.investmentRound from AccountingRecord ar where ar.bookkeeper.userAccount.id = ?1")
+	Collection<InvestmentRound> findBookkeeperInvestmentRounds(int id);
+
+	@Query("select ir from InvestmentRound ir where ir.entrepreneur.userAccount.id = ?1")
+	Collection<InvestmentRound> findEntrepreneurInvestmentRounds(int id);
 
 	@Query("select a from Application a where a.investmentRound.id = ?1 AND a.investor.userAccount.id = ?2")
 	Collection<Application> exists(int investmentRoundId, int id);
 
 	@Query("select ur from UserRole ur where ur.userAccount.id = ?1")
 	Collection<UserRole> findUserAccountRoles(int id);
+
+	@Query("select b from Bookkeeper b where b.userAccount.id = ?1")
+	Bookkeeper getBookkeeperByAccountId(int id);
 }

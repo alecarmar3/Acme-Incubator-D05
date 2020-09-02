@@ -21,16 +21,12 @@ public class AuthenticatedInvestmentRoundController extends AbstractController<A
 	private AuthenticatedInvestmentRoundListActiveService	listActiveService;
 
 	@Autowired
-	private AuthenticatedInvestmentRoundListMineService		listMineService;
-
-	@Autowired
 	private AuthenticatedInvestmentRoundShowService			showService;
 
 
 	@PostConstruct
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_ACTIVE, BasicCommand.LIST, this.listActiveService);
-		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 }

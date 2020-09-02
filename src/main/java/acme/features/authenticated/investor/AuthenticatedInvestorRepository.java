@@ -20,6 +20,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.Configuration;
 import acme.entities.roles.Investor;
 import acme.framework.entities.UserAccount;
+import acme.framework.entities.UserRole;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -33,5 +34,8 @@ public interface AuthenticatedInvestorRepository extends AbstractRepository {
 
 	@Query("select c from Configuration c")
 	Collection<Configuration> findManyConfiguration();
+
+	@Query("select ur from UserRole ur where ur.userAccount.id = ?1")
+	Collection<UserRole> findUserAccountRoles(int id);
 
 }

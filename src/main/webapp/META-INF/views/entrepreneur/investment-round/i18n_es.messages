@@ -21,6 +21,7 @@ entrepreneur.investmentRound.label.amountOfMoney = Cantidad de dinero
 entrepreneur.investmentRound.label.additionalInfo = Información adicional
 entrepreneur.investmentRound.label.entrepreneur = Emprendedor
 
+entrepreneur.investmentRound.form.button.saveInFinalMode = Guardar en modo final
 entrepreneur.investmentRound.form.button.create = Crear
 entrepreneur.investmentRound.form.button.update = Actualizar
 entrepreneur.investmentRound.form.button.delete = Eliminar

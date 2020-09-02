@@ -12,6 +12,9 @@
 
 package acme.features.authenticated.investor;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +44,17 @@ public class AuthenticatedInvestorCreateService implements AbstractCreateService
 	public boolean authorise(final Request<Investor> request) {
 		assert request != null;
 
-		return true;
+		Principal principal;
+		int userAccountId;
+
+		principal = request.getPrincipal();
+		userAccountId = principal.getAccountId();
+
+		Collection<String> roles = this.repository.findUserAccountRoles(userAccountId).stream().map(x -> x.getAuthorityName()).collect(Collectors.toList());
+
+		Boolean isNotInvestor = !roles.contains("Investor");
+
+		return isNotInvestor;
 	}
 
 	@Override

@@ -10,7 +10,6 @@ import acme.entities.AccountingRecord;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -43,9 +42,6 @@ public class AuthenticatedAccountingRecordListItsService implements AbstractList
 		Collection<AccountingRecord> result;
 
 		int id = request.getModel().getInteger("id");
-
-		Principal principal = request.getPrincipal();
-		int bookkeeperId = principal.getAccountId();
 
 		result = this.repository.findItsAccountingRecords(id);
 

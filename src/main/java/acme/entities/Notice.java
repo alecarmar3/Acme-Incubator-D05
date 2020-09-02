@@ -4,12 +4,15 @@ package acme.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.DomainEntity;
@@ -19,19 +22,20 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "deadline")
+})
 public class Notice extends DomainEntity {
-
-	// Serialization identifier -----------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
-	// Attributes --------------------------------------------------------------
-
 	@NotBlank
 	@URL
+	@Length(max = 250)
 	private String				headerPicture;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				title;
 
 	@NotNull
@@ -44,9 +48,11 @@ public class Notice extends DomainEntity {
 	private Date				deadline;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				body;
 
 	@URL
+	@Length(max = 250)
 	private String				webLinks;
 
 }

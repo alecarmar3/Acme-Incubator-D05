@@ -47,6 +47,14 @@
        drop 
        foreign key FK_r6tqltqvrlh1cyy8rsj5pev1q;
 
+    alter table `forum` 
+       drop 
+       foreign key `FKq8ggcjgl5by5gf6l5bji632hu`;
+
+    alter table `forum` 
+       drop 
+       foreign key `FKohunr24m4s1n5mgs3eoqtscsv`;
+
     alter table `investment_round` 
        drop 
        foreign key `FKkj1l8c2ftn9c65y061me6t37j`;
@@ -57,7 +65,19 @@
 
     alter table `message` 
        drop 
-       foreign key `FKc4w1gj5ff1rob521gutst6l2r`;
+       foreign key `FKfwwpivgx5j4vw4594dgrw884q`;
+
+    alter table `message` 
+       drop 
+       foreign key `FKjkp3iptdb6euvvnncku7jxblb`;
+
+    alter table `participates_in` 
+       drop 
+       foreign key `FKgem9s6jnp8gjaptj40buukpjd`;
+
+    alter table `participates_in` 
+       drop 
+       foreign key `FKp8dubhjpvwx0mgn144chnj2ya`;
 
     alter table `provider` 
        drop 
@@ -91,6 +111,8 @@
 
     drop table if exists `entrepreneur`;
 
+    drop table if exists `forum`;
+
     drop table if exists `inquiry`;
 
     drop table if exists `investment_round`;
@@ -102,6 +124,8 @@
     drop table if exists `notice`;
 
     drop table if exists `overture`;
+
+    drop table if exists `participates_in`;
 
     drop table if exists `provider`;
 

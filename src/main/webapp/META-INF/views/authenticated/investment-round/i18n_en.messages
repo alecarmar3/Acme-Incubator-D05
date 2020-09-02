@@ -14,12 +14,13 @@ authenticated.investmentRound.label.creationDate = Creation date
 authenticated.investmentRound.label.kindOfRound = Kind of round
 authenticated.investmentRound.label.title = Title
 authenticated.investmentRound.label.description = Description
-authenticated.investmentRound.label.amountOfMoney = Total euros in activities' budget
+authenticated.investmentRound.label.amountOfMoney = Amount of money
 authenticated.investmentRound.label.additionalInfo = Additional information
 authenticated.investmentRound.label.entrepreneur = Entrepreneur
 
 authenticated.investmentRound.workProgramme = Work Programme
 authenticated.investmentRound.accountingRecords = List Accounting records
-authenticated.investmentRound.button.getMessages = See messages
+authenticated.investmentRound.accountingRecord = Write Accounting record
+authenticated.investmentRound.forum = Create forum
 authenticated.investmentRound.apply = Apply for this Investment round
 authenticated.investmentRound.button.return = Return

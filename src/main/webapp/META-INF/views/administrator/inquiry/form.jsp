@@ -18,16 +18,16 @@
 <acme:form>
 	<acme:form-textbox code="administrator.inquiry.form.label.title" path="title"/>
 	
-	<jstl:if test="${command !='create' }">
+	<jstl:if test="${command !='create'}">
 	<acme:form-moment code="administrator.inquiry.form.label.creation-date" path="creationDate" readonly="true"/>
 	</jstl:if>
-	<jstl:if test="${command !='update' }">
+	<jstl:if test="${command !='create'}">
 	<acme:form-moment code="administrator.inquiry.form.label.update-date" path="updateDate" readonly="true"/>
 	</jstl:if>
 	
 	<acme:form-moment code="administrator.inquiry.form.label.deadline" path="deadline"/>
 	<acme:form-textarea code="administrator.inquiry.form.label.body" path="body"/>
-	<acme:form-textbox code="administrator.inquiry.form.label.money-min" path="moneyMin"/>
+	<acme:form-money code="administrator.inquiry.form.label.money-min" path="moneyMin"/>
 	<acme:form-money code="administrator.inquiry.form.label.money-max" path="moneyMax"/>
 	<acme:form-textbox code="administrator.inquiry.form.label.email" path="email"/>
 	

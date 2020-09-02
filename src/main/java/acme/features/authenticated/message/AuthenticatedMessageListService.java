@@ -10,7 +10,6 @@ import acme.entities.Message;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -23,21 +22,8 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 	@Override
 	public boolean authorise(final Request<Message> request) {
 		assert request != null;
-		boolean result, isTheEntrepreneur, isTheInvestor;
-		int investmentRoundId, accountId;
 
-		investmentRoundId = request.getModel().getInteger("id");
-		Principal principal = request.getPrincipal();
-
-		accountId = principal.getAccountId();
-
-		isTheEntrepreneur = this.repository.findInvestmentRoundsOfEntrepreneurById(accountId).contains(this.repository.getInvestmentRoundById(investmentRoundId));
-
-		isTheInvestor = this.repository.findInvestmentRoundsOfInvestorById(accountId).contains(this.repository.getInvestmentRoundById(investmentRoundId));
-
-		result = isTheEntrepreneur || isTheInvestor;
-
-		return result;
+		return true;
 	}
 
 	@Override
@@ -46,7 +32,7 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "creationDate", "tags");
+		request.unbind(entity, model, "title", "creationDate", "tags", "owner.userAccount.username");
 	}
 
 	@Override
@@ -58,12 +44,9 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 
 		id = request.getModel().getInteger("id");
 
-		result = this.repository.findMessagesOfInvestmentRound(id);
+		result = this.repository.findMessagesOfForum(id);
 
 		return result;
 	}
 
-	public void onSuccess() {
-
-	}
 }

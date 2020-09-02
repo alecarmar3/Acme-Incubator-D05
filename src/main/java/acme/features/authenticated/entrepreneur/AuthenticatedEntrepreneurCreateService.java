@@ -12,6 +12,9 @@
 
 package acme.features.authenticated.entrepreneur;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +46,17 @@ public class AuthenticatedEntrepreneurCreateService implements AbstractCreateSer
 	public boolean authorise(final Request<Entrepreneur> request) {
 		assert request != null;
 
-		return true;
+		Principal principal;
+		int userAccountId;
+
+		principal = request.getPrincipal();
+		userAccountId = principal.getAccountId();
+
+		Collection<String> roles = this.repository.findUserAccountRoles(userAccountId).stream().map(x -> x.getAuthorityName()).collect(Collectors.toList());
+
+		Boolean isNotEntrepreneur = !roles.contains("Entrepreneur");
+
+		return isNotEntrepreneur;
 	}
 
 	@Override

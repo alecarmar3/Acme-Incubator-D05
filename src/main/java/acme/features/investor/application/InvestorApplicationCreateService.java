@@ -17,9 +17,7 @@ import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.components.Response;
 import acme.framework.entities.Principal;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -115,20 +113,15 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 			errors.state(request, tickerAvailable, "ticker", "default.error.already-in-use", entity.getTicker());
 		}
 
+		if (!errors.hasErrors("investmentMoneyOffer")) {
+			Boolean investmentMoneyOfferEuros = entity.getInvestmentMoneyOffer().getCurrency().matches("€|EUROS|Euros|euros|EUR|Eur|eur");
+			errors.state(request, investmentMoneyOfferEuros, "investmentMoneyOffer", "default.error.wrong-currency", entity.getInvestmentMoneyOffer());
+		}
+
 	}
 	@Override
 	public void create(final Request<Application> request, final Application entity) {
 		this.repository.save(entity);
-	}
-
-	@Override
-	public void onSuccess(final Request<Application> request, final Response<Application> response) {
-		assert request != null;
-		assert response != null;
-
-		if (request.isMethod(HttpMethod.POST)) {
-			PrincipalHelper.handleUpdate();
-		}
 	}
 
 }

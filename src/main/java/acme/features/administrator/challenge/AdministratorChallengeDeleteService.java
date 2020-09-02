@@ -55,9 +55,6 @@ public class AdministratorChallengeDeleteService implements AbstractDeleteServic
 		assert entity != null;
 		assert errors != null;
 
-		// elreyrata 11.11.19 --> Se supone que este método no debería estar
-		// así que no va a comprobar la fecha de la deadline
-
 	}
 	@Override
 	public void delete(final Request<Challenge> request, final Challenge entity) {

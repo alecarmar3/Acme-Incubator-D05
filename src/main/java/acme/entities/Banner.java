@@ -3,7 +3,6 @@ package acme.entities;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -12,6 +11,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.DomainEntity;
@@ -23,17 +23,15 @@ import lombok.Setter;
 @Setter
 public class Banner extends DomainEntity {
 
-	// Serialization identifier -----------------------------------------------
-
 	private static final long	serialVersionUID	= 1L;
-
-	// Attributes --------------------------------------------------------------
 
 	@NotBlank
 	@URL
+	@Length(max = 250)
 	private String				picture;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				slogan;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -42,17 +40,19 @@ public class Banner extends DomainEntity {
 
 	@NotBlank
 	@URL
+	@Length(max = 250)
 	private String				targetUrl;
 
-	@Column(unique = true)
 	@NotBlank
 	@CreditCardNumber
 	private String				creditCardNumber; //number
 
 	@NotBlank
+	@Length(max = 250)
 	private String				holderName;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				brand;
 
 	@Pattern(regexp = "^\\d{2}\\/\\d{2}$", message = "{default.banner.error.expiration-date-pattern}")

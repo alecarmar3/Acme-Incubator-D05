@@ -26,6 +26,7 @@
 	<acme:form-textbox code="investor.application.label.investor" readonly="true" path="investor.userAccount.username"/>
 	<acme:form-textbox code="investor.application.label.investmentRound" readonly="true" path="investmentRound.title"/>
 	<acme:form-textbox code="investor.application.label.status" readonly="true" path="status"/>
+	<acme:form-textarea code="investor.application.label.justification" readonly="true" path="justification"/>
 	</jstl:if>
 	
 	<acme:form-submit code="investor.application.form.button.create" test="${command=='create'}" action="/investor/application/create?InvestmentRoundId=${investmentRound.id}"/>

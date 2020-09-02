@@ -19,17 +19,17 @@
 <acme:form-panel code="administrator.dashboard.show.generalData"/>
 <acme:form readonly="true">
 
-<acme:form-double code="administrator.dashboard.form.totalNotices" path="totalNotices"/>
-<acme:form-double code="administrator.dashboard.form.totalTechnologyRecords" path="totalTechnologyRecords"/>
-<acme:form-double code="administrator.dashboard.form.totalToolRecords" path="totalToolRecords"/>
-<acme:form-double code="administrator.dashboard.form.minimumMoneyIntervalActiveInquires" path="minimumMoneyIntervalActiveInquires"/>
-<acme:form-double code="administrator.dashboard.form.maximumMoneyIntervalActiveInquires" path="maximumMoneyIntervalActiveInquires"/>
-<acme:form-double code="administrator.dashboard.form.averageMoneyIntervalActiveInquires" path="averageMoneyIntervalActiveInquires"/>
-<acme:form-double code="administrator.dashboard.form.deviationMoneyIntervalActiveInquires" path="deviationMoneyIntervalActiveInquires"/>
-<acme:form-double code="administrator.dashboard.form.minimumMoneyIntervalActiveOvertures" path="minimumMoneyIntervalActiveOvertures"/>
-<acme:form-double code="administrator.dashboard.form.maximumMoneyIntervalActiveOvertures" path="maximumMoneyIntervalActiveOvertures"/>
-<acme:form-double code="administrator.dashboard.form.averageMoneyIntervalActiveOvertures" path="averageMoneyIntervalActiveOvertures"/>
-<acme:form-double code="administrator.dashboard.form.deviationMoneyIntervalActiveOvertures" path="deviationMoneyIntervalActiveOvertures"/>
+<acme:form-double code="administrator.dashboard.totalNotices" path="totalNotices"/>
+<acme:form-double code="administrator.dashboard.totalTechnologyRecords" path="totalTechnologyRecords"/>
+<acme:form-double code="administrator.dashboard.totalToolRecords" path="totalToolRecords"/>
+<acme:form-double code="administrator.dashboard.minimumMoneyIntervalActiveInquires" path="minimumMoneyIntervalActiveInquires"/>
+<acme:form-double code="administrator.dashboard.maximumMoneyIntervalActiveInquires" path="maximumMoneyIntervalActiveInquires"/>
+<acme:form-double code="administrator.dashboard.averageMoneyIntervalActiveInquires" path="averageMoneyIntervalActiveInquires"/>
+<acme:form-double code="administrator.dashboard.deviationMoneyIntervalActiveInquires" path="deviationMoneyIntervalActiveInquires"/>
+<acme:form-double code="administrator.dashboard.minimumMoneyIntervalActiveOvertures" path="minimumMoneyIntervalActiveOvertures"/>
+<acme:form-double code="administrator.dashboard.maximumMoneyIntervalActiveOvertures" path="maximumMoneyIntervalActiveOvertures"/>
+<acme:form-double code="administrator.dashboard.averageMoneyIntervalActiveOvertures" path="averageMoneyIntervalActiveOvertures"/>
+<acme:form-double code="administrator.dashboard.deviationMoneyIntervalActiveOvertures" path="deviationMoneyIntervalActiveOvertures"/>
 </acme:form>
 
 

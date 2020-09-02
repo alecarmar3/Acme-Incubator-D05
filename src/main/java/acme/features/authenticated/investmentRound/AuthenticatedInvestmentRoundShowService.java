@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.InvestmentRound;
+import acme.entities.roles.Bookkeeper;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -41,9 +42,14 @@ public class AuthenticatedInvestmentRoundShowService implements AbstractShowServ
 		Boolean isInvestor = roles.contains("Investor");
 		Boolean isFinalMode = entity.getFinalMode();
 
+		Bookkeeper bookkeeper = this.repository.getBookkeeperByAccountId(id);
+
+		Boolean isBookkeeper = bookkeeper != null;
+
 		Boolean investorCanApply = notBeenApplied && isInvestor && isFinalMode;
 		model.setAttribute("investorCanApply", investorCanApply);
 		model.setAttribute("InvestmentRoundId", InvestmentRoundId);
+		model.setAttribute("isBookkeeper", isBookkeeper);
 
 		request.unbind(entity, model, "ticker", "finalMode", "creationDate", "kindOfRound", "title", "description", "amountOfMoney", "additionalInfo", "entrepreneur.userAccount.username");
 	}

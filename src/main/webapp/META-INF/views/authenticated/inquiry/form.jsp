@@ -24,12 +24,6 @@
 	<acme:form-money code="authenticated.inquiry.form.label.money-max" path="moneyMax"/>
 	<acme:form-textbox code="authenticated.inquiry.form.label.email" path="email"/>
 	
-	<acme:form-submit test="${command == 'show'}" code="administrator.inquiry.form.button.update" action="/administrator/inquiry/update"/>
-	<acme:form-submit test="${command == 'show'}" code="administrator.inquiry.form.button.delete" action="/administrator/inquiry/delete"/>
-	<acme:form-submit test="${command == 'create'}" code="administrator.inquiry.form.button.create" action="/administrator/inquiry/create"/>
-	<acme:form-submit test="${command == 'update'}" code="administrator.inquiry.form.button.update" action="/administrator/inquiry/update"/>
-	<acme:form-submit test="${command == 'delete'}" code="administrator.inquiry.form.button.delete" action="/administrator/inquiry/delete"/>
-	
   	<acme:form-return code="authenticated.inquiry.form.button.return"/>
 	
 </acme:form>

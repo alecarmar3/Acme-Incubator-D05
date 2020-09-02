@@ -14,6 +14,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.Length;
+
 import acme.entities.roles.Bookkeeper;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -34,6 +36,7 @@ public class AccountingRecord extends DomainEntity {
 	// Attributes --------------------------------------------------------------
 
 	@NotBlank
+	@Length(max = 250)
 	private String				title;
 
 	@NotNull
@@ -45,6 +48,7 @@ public class AccountingRecord extends DomainEntity {
 	private Date				creationDate;
 
 	@NotBlank
+	@Length(max = 250)
 	private String				body;
 
 	@NotNull

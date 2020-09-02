@@ -17,6 +17,9 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select ir from InvestmentRound ir where ir.id = ?1")
 	InvestmentRound findOneById(int id);
 
+	@Query("select ir from InvestmentRound ir where ir.ticker = ?1")
+	InvestmentRound findInvestmentRoundByTicker(String ticker);
+
 	@Query("select ir from InvestmentRound ir where ir.entrepreneur.id = ?1")
 	Collection<InvestmentRound> findMyInvestmentRounds(int id);
 
@@ -26,9 +29,6 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select ir.ticker from InvestmentRound ir")
 	Collection<String> findTickersInUse();
 
-	@Query("select ir from InvestmentRound ir where ir.ticker=?1")
-	InvestmentRound findOneByTicker(String ticker);
-
 	@Query("select e from Entrepreneur e where e.id = ?1")
 	Entrepreneur findEntrepreneurById(int authId);
 
@@ -37,9 +37,6 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 
 	@Query("select a.budget.amount from Activity a where a.investmentRound.id = ?1")
 	Collection<Double> findBudgetsOfActivities(int id);
-
-	@Query("select ir.amountOfMoney.amount from InvestmentRound ir where ir.id = ?1")
-	Double findAmountOfMoneyForThisInvestmentRound(int id);
 
 	@Query("select ir.finalMode from InvestmentRound ir where ir.id = ?1")
 	Boolean findFinalMode(int id);

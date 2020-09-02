@@ -19,7 +19,7 @@
 	<acme:form-textbox code="administrator.technology-record.form.label.title" path="title"/>
 	<acme:form-textbox code="administrator.technology-record.form.label.activity-sector" path="activitySector"/>
 	<acme:form-textbox code="administrator.technology-record.form.label.inventor-name" path="inventorName"/>
-	<jstl:if test="${command !='update' }">
+	<jstl:if test="${command !='create' }">
 	<acme:form-moment code="administrator.technology-record.form.label.update-date" path="updateDate" readonly="true"/>
 	</jstl:if>
 	<acme:form-textarea code="administrator.technology-record.form.label.description" path="description"/>

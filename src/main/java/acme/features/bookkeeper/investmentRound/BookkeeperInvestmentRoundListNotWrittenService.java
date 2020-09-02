@@ -45,7 +45,8 @@ public class BookkeeperInvestmentRoundListNotWrittenService implements AbstractL
 		Principal principal = request.getPrincipal();
 		int id = principal.getAccountId();
 
-		result = this.repository.findNotWrittenInvestmentRounds(id);
+		result = this.repository.findAllRounds();
+		result.removeAll(this.repository.findWrittenInvestmentRounds(id));
 
 		return result;
 	}
