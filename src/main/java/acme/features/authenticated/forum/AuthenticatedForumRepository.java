@@ -40,6 +40,9 @@ public interface AuthenticatedForumRepository extends AbstractRepository {
 	Authenticated findAuthenticatedById(int authId);
 
 	@Query("select pi.forum from ParticipatesIn pi where pi.participant.id = ?1")
-	Collection<Forum> findManyByAuthenticatedId(int id);
+	Collection<Forum> findManyByParticipantId(int id);
+
+	@Query("select f from Forum f where f.owner.id = ?1")
+	Collection<Forum> findForumsByOwner(int id);
 
 }

@@ -20,6 +20,9 @@ public interface AuthenticatedParticipatesInRepository extends AbstractRepositor
 	@Query("select pi from ParticipatesIn pi where pi.id = ?1")
 	ParticipatesIn findOneById(int id);
 
+	@Query("select f from Forum f where f.id = ?1")
+	Forum findOneForumById(int id);
+
 	@Query("select pi from ParticipatesIn pi where pi.forum.id = ?1")
 	Collection<ParticipatesIn> findManyByForumId(int forumId);
 

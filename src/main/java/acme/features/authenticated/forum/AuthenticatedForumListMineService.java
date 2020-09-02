@@ -43,18 +43,18 @@ public class AuthenticatedForumListMineService implements AbstractListService<Au
 
 		Collection<Forum> result = new ArrayList<Forum>();
 
-		Collection<Forum> participated = new ArrayList<Forum>();
+		Collection<Forum> participants = new ArrayList<Forum>();
 
 		Principal principal = request.getPrincipal();
 		int id = principal.getAccountId();
 
-		participated = this.repository.findManyByAuthenticatedId(principal.getActiveRoleId());
+		participants = this.repository.findManyByParticipantId(principal.getActiveRoleId());
 
 		this.repository.findEntrepreneurInvestmentRounds(id).stream().forEach(x -> result.addAll(this.repository.findForumsOfInvestmentRound(x.getId())));
 		this.repository.findBookkeeperInvestmentRounds(id).stream().forEach(x -> result.addAll(this.repository.findForumsOfInvestmentRound(x.getId())));
 		this.repository.findInvestorInvestmentRounds(id).stream().forEach(x -> result.addAll(this.repository.findForumsOfInvestmentRound(x.getId())));
 
-		result.addAll(participated);
+		result.addAll(participants);
 
 		return result;
 	}

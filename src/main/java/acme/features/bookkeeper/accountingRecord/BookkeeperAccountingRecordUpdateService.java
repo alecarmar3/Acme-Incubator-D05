@@ -22,7 +22,9 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 	public boolean authorise(final Request<AccountingRecord> request) {
 		assert request != null;
 
-		return true;
+		Boolean isMine = this.repository.findMyAccountingRecords(request.getPrincipal().getActiveRoleId()).contains(this.repository.findOneById(request.getModel().getInteger("id")));
+
+		return isMine;
 	}
 
 	@Override

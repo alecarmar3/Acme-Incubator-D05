@@ -25,7 +25,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "investment_round_id, final_mode"), @Index(columnList = "bookkeeper_id")
+	@Index(columnList = "investment_round_id"), @Index(columnList = "bookkeeper_id")
 })
 public class AccountingRecord extends DomainEntity {
 

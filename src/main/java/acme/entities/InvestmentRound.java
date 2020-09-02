@@ -29,7 +29,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "entrepreneur_id"), @Index(columnList = "final_mode"), @Index(columnList = "ticker")
+	@Index(columnList = "entrepreneur_id"), @Index(columnList = "ticker")
 })
 public class InvestmentRound extends DomainEntity {
 

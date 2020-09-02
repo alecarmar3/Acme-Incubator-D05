@@ -12,6 +12,7 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -25,7 +26,17 @@ public class AuthenticatedParticipatesInAddParticipantService implements Abstrac
 	public boolean authorise(final Request<ParticipatesIn> request) {
 		assert request != null;
 
-		return true;
+		boolean isOwner;
+
+		Principal principal = request.getPrincipal();
+		int myId = principal.getActiveRoleId();
+
+		int forumId = request.getModel().getInteger("forumId");
+		Forum forum = this.repository.findForumById(forumId);
+
+		isOwner = forum.getOwner().getId() == myId;
+
+		return isOwner;
 	}
 
 	@Override

@@ -28,8 +28,8 @@
 	<acme:form-submit test="${command == 'show'}" code="authenticated.forum.button.getMessages" method="get" action="/authenticated/message/list?id=${id}"/>
 	<acme:form-submit test="${command == 'show'}" code="authenticated.forum.button.postMessage" method="get" action="/authenticated/message/create?ForumId=${id}"/>
 	<acme:form-submit test="${command != 'create' && isOwner}" code="authenticated.participates-in.button.add-participant" method="get" action="/authenticated/participates-in/add-participant?forumId=${id}"/>
-	<acme:form-submit test="${command != 'create'}" code="authenticated.forum.button.list-participants" method="get" action="/authenticated/participates-in/list-participants?forumId=${id}"/>
-	<acme:form-submit test="${command == 'show'}" code="authenticated.forum.button.delete" action="/authenticated/forum/delete"/>
+	<acme:form-submit test="${command != 'create' && isOwner}" code="authenticated.forum.button.list-participants" method="get" action="/authenticated/participates-in/list-participants?forumId=${id}"/>
+	<acme:form-submit test="${command == 'show' && isOwner}" code="authenticated.forum.button.delete" action="/authenticated/forum/delete"/>
 	<acme:form-submit test="${command == 'create'}" code="authenticated.forum.button.create" action="/authenticated/forum/create?InvestmentRoundId=${investmentRound.id}"/>
 	<acme:form-return code="authenticated.forum.button.return"/>
 </acme:form>

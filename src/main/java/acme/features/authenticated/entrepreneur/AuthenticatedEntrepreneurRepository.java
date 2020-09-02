@@ -20,6 +20,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.Configuration;
 import acme.entities.roles.Entrepreneur;
 import acme.framework.entities.UserAccount;
+import acme.framework.entities.UserRole;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -31,7 +32,13 @@ public interface AuthenticatedEntrepreneurRepository extends AbstractRepository 
 	@Query("select e from Entrepreneur e where e.userAccount.id = ?1")
 	Entrepreneur findOneEntrepreneurByUserAccountId(int id);
 
+	@Query("select e from Entrepreneur e where e.id = ?1")
+	Entrepreneur findOneEntrepreneurByRoleId(int id);
+
 	@Query("select c from Configuration c")
 	Collection<Configuration> findManyConfiguration();
+
+	@Query("select ur from UserRole ur where ur.userAccount.id = ?1")
+	Collection<UserRole> findUserAccountRoles(int id);
 
 }

@@ -23,14 +23,14 @@ public class AuthenticatedParticipatesInRemoveParticipantService implements Abst
 	public boolean authorise(final Request<ParticipatesIn> request) {
 		assert request != null;
 
-		boolean result = false;
+		boolean isOwner;
 
 		ParticipatesIn participatesIn = this.repository.findOneById(request.getModel().getInteger("id"));
 		Principal principal = request.getPrincipal();
 
-		result = participatesIn.getForum().getOwner().getId() == principal.getActiveRoleId();
+		isOwner = participatesIn.getForum().getOwner().getId() == principal.getActiveRoleId();
 
-		return result;
+		return isOwner;
 	}
 
 	@Override

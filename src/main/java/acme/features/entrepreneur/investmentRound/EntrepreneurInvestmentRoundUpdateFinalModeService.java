@@ -30,9 +30,13 @@ public class EntrepreneurInvestmentRoundUpdateFinalModeService implements Abstra
 	public boolean authorise(final Request<InvestmentRound> request) {
 		assert request != null;
 
+		InvestmentRound requested = this.repository.findOneById(request.getModel().getInteger("id"));
+
+		Boolean isMine = requested.getEntrepreneur().getId() == request.getPrincipal().getActiveRoleId();
+
 		Boolean isNotFinalMode = this.repository.findFinalMode(request.getModel().getInteger("id")).equals(false);
 
-		return isNotFinalMode;
+		return isNotFinalMode && isMine;
 	}
 
 	@Override
